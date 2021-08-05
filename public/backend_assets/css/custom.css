@@ -1,0 +1,50 @@
+.my-btn {
+  font-weight: 600;
+  font-size: 13px;
+  /*letter-spacing: 1px;*/
+  text-transform: uppercase;
+  display: inline-block;
+  padding: 12px 12px;
+  border-radius: 50px;
+  transition: 0.5s;
+  line-height: 1;
+  /*margin: 0 10px;*/
+  -webkit-animation-delay: 0.8s;
+  animation-delay: 0.8s;
+  color: #000;
+  border: 2px solid #ffb03b;
+}
+.my-btn:hover {
+  background: #ffb03b;
+  color: #000;
+}
+.my-submit-btn {
+  background: #ffb03b;
+  color: #fff;
+  border-radius: 50px;
+  padding: 10px 25px;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  transition: 0.3s;
+  white-space: nowrap;
+}
+.my-submit-btn:hover {
+  background: #ffa012;
+  color: #fff;
+}
+.my-font{
+  font-family: "Satisfy";
+}
+.my-img{
+  width: 75px;
+  height: 70px;
+  margin-right: 5px;
+}
+th, td{
+  font-size: 1rem;
+}
+.user-name{
+  font-family: "Satisfy";
+  color: #ffb03b;
+}
