@@ -3,7 +3,7 @@
 <div id="layoutSidenav_content">
     <main>
         <div class="container-fluid px-4">
-            <h3 class="mt-4 d-inline-block">Orders</h3>
+            <h3 class="mt-4 d-inline-block">Orders Test</h3>
             <div class="card mt-4 mb-4 shadow ">
                 <h6 class="card-header">Search Order History</h6>
                 <div class="card-body">
