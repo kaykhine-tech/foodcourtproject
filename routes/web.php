@@ -22,14 +22,18 @@ Route::get('/', function () {
 Route::middleware('auth','role:admin')->group(function(){
 Route::resource('categories', 'CategoryController'); // 7 methods
 Route::resource('items', 'ItemController'); // 7 methods
-Route::resource('orders', 'OrderController'); // 7 methods
+
 });
+Route::resource('orders', 'OrderController'); // 7 methods
 
 // Frontend
 Route::prefix('frontend')->group(function(){
-    Route::get('home', 'FrontendController@home')->name('frontend.home');
-    Route::get('about', 'FrontendController@about')->name('frontend.about');
-    Route::get('contact', 'FrontendController@contact')->name('frontend.contact');
+Route::get('home', 'FrontendController@home')->name('frontend.home');
+Route::get('about', 'FrontendController@about')->name('frontend.about');
+Route::get('contact', 'FrontendController@contact')->name('frontend.contact');
+Route::get('cart', 'FrontendController@cart')->name('frontend.cart');
+Route::get('menu', 'FrontendController@menu')->name('frontend.menu');
+
 
 });
 

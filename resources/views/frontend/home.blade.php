@@ -20,7 +20,7 @@
                 <p class="animate__animated animate__fadeInUp">Welcome From Our K&H Food Court ! You can browse our page and if something you want to eat, you can order from us. We're warmly welcome all of you. Thank you !</p>
                 <div>
                   <a href="{{route('frontend.home')}}" class="btn-menu animate__animated animate__fadeInUp scrollto">HOME</a>
-                  <a href="{{route('frontend.about')}}" class="btn-book animate__animated animate__fadeInUp scrollto">ABOUT US</a>
+                  <a href="{{route('frontend.menu')}}" class="btn-book animate__animated animate__fadeInUp scrollto">MENU</a>
                 </div>
               </div>
             </div>
@@ -34,7 +34,7 @@
                 <p class="animate__animated animate__fadeInUp">Welcome From Our K&H Food Court ! You can browse our page and if something you want to eat, you can order from us. We're warmly welcome all of you. Thank you !</p>
                 <div>
                   <a href="{{route('frontend.home')}}" class="btn-menu animate__animated animate__fadeInUp scrollto">HOME</a>
-                  {{-- <a href="{{route('frontend.about')}}" class="btn-book animate__animated animate__fadeInUp scrollto">ABOUT US</a> --}}
+                  <a href="{{route('frontend.menu')}}" class="btn-book animate__animated animate__fadeInUp scrollto">MENU</a>
                 </div>
               </div>
             </div>
@@ -49,7 +49,7 @@
                 <p class="animate__animated animate__fadeInUp">Welcome From Our K&H Food Court ! You can browse our page and if something you want to eat, you can order from us. We're warmly welcome all of you. Thank you !</p>
                 <div>
                   <a href="{{route('frontend.home')}}" class="btn-menu animate__animated animate__fadeInUp scrollto">HOME</a>
-                  {{-- <a href="{{route('frontend.about')}}" class="btn-book animate__animated animate__fadeInUp scrollto">ABOUT US</a> --}}
+                  <a href="{{route('frontend.menu')}}" class="btn-book animate__animated animate__fadeInUp scrollto">MENU</a>
                 </div>
               </div>
             </div>
@@ -101,61 +101,31 @@
       <div class="container">
 
         <div class="section-title">
-          <h2>Food <span>Discount Items</span></h2>
+          <h2>Food <span>Summer Promotion Discount Items</span></h2>
           <p>You can browse our discount food categories.</p>
         </div>
 
         <div class="row">
-
+          @foreach($items as $item)
           <div class="col-lg-4">
             <div class="box">
-              <span>01</span>
-              <h4>Bread</h4>
-              <img src="{{asset('frontendtemplate/img/category4.jpg')}}">
-              <del>Price: 4000 Ks</del>
-              <p>Discount Price: 3500 Ks</p>
-              <button class="btn btn-outline-secondary">Add To Cart</button>
+              <span>{{$item->id}}</span>
+              <h4>{{$item->name}}</h4>
+              <img src="{{asset("$item->photo")}}">
+              <p><del>Price:{{$item->price}} Ks</del></p>
+              <p>Discount:{{$item->discount}} Ks</p>
+              {{-- <button class="btn btn-outline-secondary add-to-cart">Add To Cart</button> --}}
+              <button class="btn btn-outline-secondary add-to-cart" data-id="{{$item->id}}" data-name="{{$item->name}}" data-photo="{{$item->photo}}" data-price="{{$item->price}}" data-discount="{{$item->discount}}">Add To Cart</button>
             </div>
 
           </div>
-
-          <div class="col-lg-4 mt-4 mt-lg-0">
-            <div class="box">
-              <span>02</span>
-              <h4>Pork Pizza</h4>
-              <img src="{{asset('frontendtemplate/img/pizza.jpg')}}">
-              <del>Price: 18000 Ks</del>
-              <p>Discount Price: 16000 Ks</p>
-              <button class="btn btn-outline-secondary">Add To Cart</button>
-            </div>
-
-          </div>
-
-          <div class="col-lg-4 mt-4 mt-lg-0">
-            <div class="box">
-              <span>03</span>
-              <h4>Noodle Soup</h4>
-              <img src="{{asset('frontendtemplate/img/noodle.jpg')}}">
-              <del>Price: 6000 Ks</del>
-              <p>Discount Price: 4500 Ks</p>
-              <button class="btn btn-outline-secondary">Add To Cart</button>
-            </div>
-
-
-          {{-- <div class="col-lg-4 mt-4 mt-lg-0">
-            <div class="box">
-              <span>04</span>
-              <h4>Bread</h4>
-              <p>Molestiae officiis omnis illo asperiores. Aut doloribus vitae sunt debitis quo vel nam quis</p>
-              <img src="{{asset('frontendtemplate/img/category4.jpg')}}">
-            </div>
-          </div> --}}
-
-
+          @endforeach
         </div>
 
       </div>
     </section><!-- End Whu Us Section -->
 
-
+@endsection
+@section('script')
+<script type="text/javascript" src="{{asset('template/js/custom.js')}}"></script>
 @endsection
