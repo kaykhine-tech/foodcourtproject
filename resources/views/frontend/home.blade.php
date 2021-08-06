@@ -86,7 +86,8 @@
               <span>{{$category->id}}</span>
               <h4>{{$category->name}}</h4>
               
-              <img src="{{asset("storage/$category->photo")}}">
+              <img src="{{asset("storage/$category->photo")}}" class="ur-class">
+
             </div>
           </div>
           @endforeach
@@ -111,7 +112,8 @@
             <div class="box">
               <span>{{$item->id}}</span>
               <h4>{{$item->name}}</h4>
-              <img src="{{asset("storage/$item->photo")}}">
+              <img src="{{asset("storage/$item->photo")}}" class="ur-class">
+
               <p><del>Price:{{$item->price}} Ks</del></p>
               <p>Discount:{{$item->discount}} Ks</p>
               {{-- <button class="btn btn-outline-secondary add-to-cart">Add To Cart</button> --}}

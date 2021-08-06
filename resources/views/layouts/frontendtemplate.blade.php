@@ -27,6 +27,8 @@
 
   <!-- Template Main CSS File -->
   <link href="{{asset('frontendtemplate/css/style.css')}}" rel="stylesheet">
+  <link href="{{asset('frontendtemplate/css/custom.css')}}" rel="stylesheet" />
+
 
   <!-- =======================================================
   * Template Name: Delicious - v4.3.0

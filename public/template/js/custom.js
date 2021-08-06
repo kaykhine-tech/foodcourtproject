@@ -214,11 +214,7 @@ $(document).ready(function(){
 
   // checkout process
   $('.checkout').click(function(){
-    // if(!Auth::login()){
-    //   {{ __('Login')}};
-    // }else {
-      
-    // }
+    
     //alert('ok');
     $.ajaxSetup({
       headers: {

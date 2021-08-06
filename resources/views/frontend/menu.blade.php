@@ -38,7 +38,7 @@
     </div>
   </section><!-- End Hero -->
 
-  	  <!-- ======= Menu Section ======= -->
+  {{-- 	  <!-- ======= Menu Section ======= -->
     <section id="menu" class="menu">
       <div class="container">
 
@@ -152,7 +152,7 @@
         </div>
 
       </div>
-    </section><!-- End Menu Section -->
+    </section><!-- End Menu Section --> --}}
 
     <section id="why-us" class="why-us">
       <div class="container">
@@ -168,7 +168,8 @@
             <div class="box">
               <span>{{$item->id}}</span>
               <h4>{{$item->name}}</h4>
-              <img src="{{asset("storage/$item->photo")}}">
+              <img src="{{asset("storage/$item->photo")}}" class="ur-class">
+
               <p>Price:{{$item->price}} Ks</p>
               <button class="btn btn-outline-secondary add-to-cart" data-id="{{$item->id}}" data-name="{{$item->name}}" data-photo="{{$item->photo}}" data-price="{{$item->price}}">Add To Cart</button>
             </div>
@@ -183,7 +184,8 @@
             <div class="box">
               <span>{{$item->id}}</span>
               <h4>{{$item->name}}</h4>
-              <img src="{{asset("storage/$item->photo")}}">
+              <img src="{{asset("storage/$item->photo")}}" class="ur-class">
+
               <p><del>Price:{{$item->price}} Ks</del></p>
               <p>Discount:{{$item->discount}} Ks</p>
               {{-- <button class="btn btn-outline-secondary add-to-cart">Add To Cart</button> --}}
