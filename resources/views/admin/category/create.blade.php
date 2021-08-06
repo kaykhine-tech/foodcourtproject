@@ -25,6 +25,9 @@
 						    <label for="inputPhoto" class="col-sm-2 col-form-label">Photo</label>
 						    <div class="col-sm-10">
 						    	<input type="file" name="photo" class="form-control-file" id="inputPhoto">
+						    	@if ($errors->has('photo'))
+				                    <span class="text-danger">{{ $errors->first('photo') }}</span>
+				                @endif
 						    </div>
 						  </div>
 						  <div class="row mb-3">

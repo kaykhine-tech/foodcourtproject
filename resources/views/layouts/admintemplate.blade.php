@@ -9,15 +9,15 @@
         <title>Dashboard - SB Admin</title>
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
         <link href="{{asset('backend_assets/css/styles.css')}}" rel="stylesheet" />
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
+        <script src="{{asset('backend_assets/js/font-awesome-5.15.3.js')}}"></script>
         {{-- Custom CSS --}}
         <link href="{{asset('backend_assets/css/custom.css')}}" rel="stylesheet" />
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
+        {{-- <link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet"> --}}
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet">
+        {{-- <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet"> --}}
     </head>
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
@@ -80,7 +80,7 @@
                                 </div>
                                 Order Management
                             </a>
-                            <a class="nav-link" href="tables.html">
+                            <a class="nav-link" href="{{route('users.index')}}">
                                 <div class="sb-nav-link-icon">
                                     <i class="fa fa-users" style="color:white"></i>
                                 </div>
@@ -96,7 +96,6 @@
                 </div>
                 @yield('content')
             </div>
-
             <!-- Logout Modal-->
             <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
                 aria-hidden="true">
@@ -120,7 +119,6 @@
                     </div>
                 </div>
             </div>
-
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
             <script src="{{asset('backend_assets/js/scripts.js')}}"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
@@ -133,5 +131,14 @@
             <script src="{{asset('backend_assets/jquery/jquery.min.js')}}"></script>
             {{-- Custom JS --}}
             @yield('script')
+            <script type="text/javascript">
+            $(document).ready(function(){
+            $(function() {
+            var path = "http://localhost:8000" + location.pathname;
+            $("a[href='" + path + "']").addClass('active');
+            console.log(path);
+            })
+            })
+            </script>
         </body>
     </html>

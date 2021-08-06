@@ -27,6 +27,9 @@
 						    <div class="col-sm-10">
 						    	<input type="file" name="photo" class="form-control-file" id="inputPhoto">
 						    	<img src="{{$category->photo}}" alt="photo" class="w-25">
+						    	@if ($errors->has('photo'))
+				                    <span class="text-danger">{{ $errors->first('photo') }}</span>
+				                @endif
 						    </div>
 						  </div>
 						  <div class="row mb-3">
