@@ -26,7 +26,8 @@ Route::resource('users', 'UserController'); // 7 methods
 
 
 });
-Route::resource('orders', 'OrderController'); // 7 methods
+Route::resource('orders', 'OrderController');
+ // 7 methods
 
 // Frontend
 Route::prefix('frontend')->group(function(){

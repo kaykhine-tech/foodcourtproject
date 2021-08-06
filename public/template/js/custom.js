@@ -77,13 +77,13 @@ $(document).ready(function(){
                 // noti += v.qty;
                 // total += subtotal;
         total += price*item.qty;
-        console.log(price);
+        //console.log(price);
 
         html+= `<tr>
             <td><button class="removebtn btn-danger btn-sm" data-id="${i}">x</button>${item.id}</td>
             <td>
               ${item.name}
-              <img src="${item.photo}" class="w-25">
+              <img src="http://localhost:8000/storage/${item.photo}" class="w-25">
             </td>
             <td>
               ${price}
@@ -227,7 +227,7 @@ $(document).ready(function(){
       // remove ls
       localStorage.clear();
       getData();
-      // use sweetalert
+      
     })
   })
 })
