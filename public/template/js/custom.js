@@ -84,7 +84,7 @@ $(document).ready(function(){
               <button class="btn minus_btn btn-outline-secondary" data-id="${i}">-</button>
             </td>
             <td>
-              ${(item.price*item.qty)}
+              ${(price*item.qty)}
             </td>
           </tr>`;
 

@@ -44,7 +44,7 @@
 							<section class="invoice">
 								<div class="row mb-4">
 									<div class="col-6">
-										{{-- <img src="logo/logo_med.jpg" class="img-fluid w-25"> --}}
+										{{-- <img src="logo" class="img-fluid w-25"> --}}
 									</div>
 									<div class="col-6">
 										<h5 class="text-right"></h5>
@@ -81,28 +81,26 @@
 											</tr>
 										</thead>
 										<tbody>
-											<h1>{{$order->items}}</h1>
 											@foreach($order->items as $item)
-											<tr>
-												<td>{{$item->name}}</td>
-												<td>{{$item->code_no}}</td>
-												<td>
-													@if($item->discount)
-													<strike>{{$item->price}} Ks</strike>
-													<span class="d-block">{{$item->discount}} Ks</span>
-													@else
-													{{$item->price}} Ks
-													@endif
-												</td>
-											</td>
-											<td>{{$item->qty}}</td>
-											<td></td>
-										</tr>
-										@endforeach
-									</tbody>
-								</table>
+												<tr>
+													<td>{{$item->name}}</td>
+													<td>{{$item->code_no}}</td>
+													<td>
+														@if($item->discount)
+															<strike>{{$item->price}} Ks</strike>
+															<span class="d-block">{{$item->discount}} Ks</span>
+														@else
+															{{$item->price}} Ks
+														@endif
+													</td>
+													<td>{{$item->pivot->qty}}</td>
+													<td>{{$item->price * $item->qty}}</td>
+												</tr>
+											@endforeach
+										</tbody>
+									</table>
+								</div>
 							</div>
-						</div>
 					</section>
 				</div>
 			</div>
