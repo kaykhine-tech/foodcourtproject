@@ -79,18 +79,19 @@
           <p>You can browse our food categories.</p>
         </div>
 
-        <div class="row">
+        <div class="row" id="category_id">
           @foreach($categories as $category)
           <div class="col-lg-4">
             <div class="box">
               <span>{{$category->id}}</span>
               <h4>{{$category->name}}</h4>
               
-              <img src="{{asset("storage/$category->photo")}}" class="ur-class">
+              <a href="{{route('categoryfilter',$category->id)}}"><img src="{{asset("storage/$category->photo")}}" class="ur-class"></a>
 
             </div>
           </div>
           @endforeach
+
         </div>
 
       </div>

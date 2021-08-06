@@ -76,11 +76,12 @@
                             <tfoot>
                               <tr>
                                 <td colspan="8"></td>
-                                <td>
-                                   {{--  @if(!Auth::user('login')) --}}
-                                  <button class="btn btn-success checkout">Checkout</button>
-                                   {{--  @endif --}}
-
+                                <td class="checkcart">
+                                    @if(!Auth::user('login'))
+                                    <button class="btn btn-success"><a href="{{ route('login')}}">{{ __('Login')}}</a></button>
+                                    @else
+                                    <button class="btn btn-success checkout">Checkout</button>
+                                    @endif
                                 </td>
                               </tr>
 

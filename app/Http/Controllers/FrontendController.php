@@ -36,5 +36,13 @@ class FrontendController extends Controller
         
     }
 
+    public function category(Request $request, $id){
+        //dd ($id);
+        $categoryfilter = Item::where('category_id',$id)->get();
+        //dd($categoryfilter);
+        return view('frontend.categorydetail',compact('categoryfilter'));
+
+    }
+
 
 }
