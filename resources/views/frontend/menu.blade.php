@@ -168,9 +168,26 @@
             <div class="box">
               <span>{{$item->id}}</span>
               <h4>{{$item->name}}</h4>
-              <img src="{{asset("$item->photo")}}">
+              <img src="{{asset("storage/$item->photo")}}">
               <p>Price:{{$item->price}} Ks</p>
               <button class="btn btn-outline-secondary add-to-cart" data-id="{{$item->id}}" data-name="{{$item->name}}" data-photo="{{$item->photo}}" data-price="{{$item->price}}">Add To Cart</button>
+            </div>
+
+          </div>
+          @endforeach
+        </div>
+
+        <div class="row">
+          @foreach($items as $item)
+          <div class="col-lg-4">
+            <div class="box">
+              <span>{{$item->id}}</span>
+              <h4>{{$item->name}}</h4>
+              <img src="{{asset("storage/$item->photo")}}">
+              <p><del>Price:{{$item->price}} Ks</del></p>
+              <p>Discount:{{$item->discount}} Ks</p>
+              {{-- <button class="btn btn-outline-secondary add-to-cart">Add To Cart</button> --}}
+              <button class="btn btn-outline-secondary add-to-cart" data-id="{{$item->id}}" data-name="{{$item->name}}" data-photo="{{$item->photo}}" data-price="{{$item->price}}" data-discount="{{$item->discount}}">Add To Cart</button>
             </div>
 
           </div>

@@ -58,11 +58,11 @@
 
       <nav id="navbar" class="navbar order-last order-lg-0">
         <ul>
-          <li><a class="nav-link scrollto active" href="{{route('frontend.home')}}">Home</a></li>
+          <li><a class="nav-link scrollto" href="{{route('frontend.home')}}">Home</a></li>
           <li><a class="nav-link scrollto" href="{{route('frontend.about')}}">About</a></li>
           <li><a class="nav-link scrollto" href="{{route('frontend.menu')}}">Menu</a></li>
           <li><a class="nav-link scrollto" href="{{route('frontend.contact')}}">Contact</a></li>
-          <li class="nav-item"><a class="nav-link" href="{{route('frontend.cart')}}"> Cart [ <span class="cartNoti">1</span> ]  </a>
+          <li class="nav-item"><a class="nav-link" href="{{route('frontend.cart')}}"> Cart [ <span class="cartNoti">0</span> ]  </a>
 
           @guest
                     <li class="nav-item">
@@ -856,9 +856,16 @@
   <!-- Template Main JS File -->
   <script src="{{asset('frontendtemplate/js/main.js')}}"></script>
 
-  
-
 @yield('script')
+<script type="text/javascript">
+            $(document).ready(function(){
+            $(function() {
+            var path = "http://localhost:8000" + location.pathname;
+            $("a[href='" + path + "']").addClass('active');
+            console.log(path);
+            })
+            })
+</script>
 
 </body>
 
@@ -887,3 +894,5 @@
                     </div>
                 </div>
             </div>
+
+

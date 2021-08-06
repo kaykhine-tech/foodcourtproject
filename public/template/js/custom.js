@@ -63,16 +63,30 @@ $(document).ready(function(){
       mycartarray = JSON.parse(mycartjson);
 
       for(item of mycartarray){
-        total += (item.price*item.qty);
+        //console.log(item);
+        var unitprice = item.price;
+                var discount = item.discount;
+                // var qty = v.qty;
+                if(discount){
+                    var price = discount;
+                }else{
+                    var price = unitprice;
+                }
+                // var subtotal = price * qty;
+
+                // noti += v.qty;
+                // total += subtotal;
+        total += price*item.qty;
+        //console.log(price);
 
         html+= `<tr>
             <td><button class="removebtn btn-danger btn-sm" data-id="${i}">x</button>${item.id}</td>
             <td>
               ${item.name}
-              <img src="${item.photo}" class="w-25">
+              <img src="http://localhost:8000/storage/${item.photo}" class="w-25">
             </td>
             <td>
-              ${item.price}
+              ${price}
             </td>
             <td>
               <button class="btn plus_btn btn-outline-secondary" data-id="${i}">+</button>
@@ -200,6 +214,11 @@ $(document).ready(function(){
 
   // checkout process
   $('.checkout').click(function(){
+    // if(!Auth::login()){
+    //   {{ __('Login')}};
+    // }else {
+      
+    // }
     //alert('ok');
     $.ajaxSetup({
       headers: {
@@ -213,7 +232,7 @@ $(document).ready(function(){
       // remove ls
       localStorage.clear();
       getData();
-      // use sweetalert
+      
     })
   })
 })
