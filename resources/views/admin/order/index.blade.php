@@ -13,7 +13,6 @@
                                 <th>#</th>
                                 <th>Order Date</th>
                                 <th>Voucher No</th>
-                                <th>Customer</th>
                                 <th>Status</th>
                                 <th>Action</th>
                             </tr>
@@ -29,7 +28,6 @@
                                     {{Carbon\Carbon::parse($order->orderdate)->format('d-m-Y')}}
                                 </td>
                                 <td>{{$order->voucher_no}}</td>
-                                <td>{{$order->user->name}}</td>
                                 <td>{{$order->status}}</td>
                                 <td>
                                     <a href="{{route('orders.show',$order->id)}}" class="btn my-btn">

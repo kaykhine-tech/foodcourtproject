@@ -63,7 +63,21 @@ $(document).ready(function(){
       mycartarray = JSON.parse(mycartjson);
 
       for(item of mycartarray){
-        total += (item.price*item.qty);
+        //console.log(item);
+        var unitprice = item.price;
+                var discount = item.discount;
+                // var qty = v.qty;
+                if(discount){
+                    var price = discount;
+                }else{
+                    var price = unitprice;
+                }
+                // var subtotal = price * qty;
+
+                // noti += v.qty;
+                // total += subtotal;
+        total += price*item.qty;
+        console.log(price);
 
         html+= `<tr>
             <td><button class="removebtn btn-danger btn-sm" data-id="${i}">x</button>${item.id}</td>
@@ -72,7 +86,7 @@ $(document).ready(function(){
               <img src="${item.photo}" class="w-25">
             </td>
             <td>
-              ${item.price}
+              ${price}
             </td>
             <td>
               <button class="btn plus_btn btn-outline-secondary" data-id="${i}">+</button>
@@ -84,7 +98,7 @@ $(document).ready(function(){
               <button class="btn minus_btn btn-outline-secondary" data-id="${i}">-</button>
             </td>
             <td>
-              ${(item.price*item.qty)}
+              ${(price*item.qty)}
             </td>
           </tr>`;
 

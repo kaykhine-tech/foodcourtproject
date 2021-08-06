@@ -62,7 +62,7 @@
           <li><a class="nav-link scrollto" href="{{route('frontend.about')}}">About</a></li>
           <li><a class="nav-link scrollto" href="{{route('frontend.menu')}}">Menu</a></li>
           <li><a class="nav-link scrollto" href="{{route('frontend.contact')}}">Contact</a></li>
-          <li class="nav-item"><a class="nav-link" href="{{route('frontend.cart')}}"> Cart [ <span class="cartNoti">1</span> ]  </a>
+          <li class="nav-item"><a class="nav-link" href="{{route('frontend.cart')}}"> Cart [ <span class="cartNoti">0</span> ]  </a>
 
           @guest
                     <li class="nav-item">
