@@ -67,7 +67,11 @@
 								<select name="category_id" class="form-control" id="inputCategory">
 									<optgroup label="Choose Category">
 										@foreach($categories as $category)
-										<option value="{{$category->id}}" @if($category->id==$item->item_id) {{'selected'}} @endif>{{$category->name}}</option>
+										<option value="{{$category->id}}" 
+											@if($category->id==$item->category_id) {{'selected'}}
+											@endif>
+											{{$category->name}}
+										</option>
 										@endforeach
 									</optgroup>
 								</select>

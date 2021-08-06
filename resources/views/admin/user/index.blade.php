@@ -2,11 +2,11 @@
 @section('content')
 	<div id="layoutSidenav_content">
 		<main>
-            <div class="container-fluid px-4">          	
+            <div class="container-fluid px-4">           	
                 <div class="card mt-4 mb-4 shadow ">
                     <div class="card-header">
-                        <h3 class="m-0 font-weight-bold d-inline-block">Categories</h3>
-                    	<a href="{{route('categories.create')}}" class="btn my-submit-btn float-end">Add Category</a>
+                        <h3 class="m-0 font-weight-bold d-inline-block">Users</h3>
+                    	<a href="{{route('users.create')}}" class="btn my-submit-btn float-end">Add User</a>
                     </div>
                     <div class="card-body">
                         <table id="datatablesSimple">
@@ -14,7 +14,7 @@
                                 <tr>
                                 	<th>No.</th>
                                     <th>Name</th>
-                                    <th>Number of Items</th>
+                                    <th>Contact</th>
                                     <th>Actions</th>
                                 </tr>
                             </thead>
@@ -22,7 +22,7 @@
                                 <tr>
                                 	<th>No.</th>
                                     <th>Name</th>
-                                    <th>Number of Items</th>
+                                    <th>Contact</th>
                                     <th>Actions</th>
                                 </tr>
                             </tfoot>
@@ -32,21 +32,16 @@
                             		$i = 1;
                             	@endphp
 
-                            	@foreach($categories as $category)
+                            	@foreach($users as $user)
 
                                 <tr>
                                     <td>{{$i++}}</td>
-                                    <td>
-                                        <img src="{{asset('storage/'.$category->photo)}}" class="my-img">
-                                        {{$category->name}}
+                                    <td>                                        
+                                        {{$user->name}}
                                     </td>
-                                    <td>{{count($category->items)}}</td>
+                                    <td>{{$user->ph_no}}</td>
                                     <td>
-                                    	<a href="{{route('categories.edit',$category->id)}}" class="btn my-btn">
-                                    		<i class="far fa-edit"></i> Edit
-                                    	</a>
-
-                                    	<a href="" data-id="{{route('categories.destroy',$category->id)}}" data-bs-toggle="modal" class="btn my-btn deletebtn">
+                                    	<a href="" data-id="{{route('users.destroy',$user->id)}}" data-bs-toggle="modal" class="btn my-btn deletebtn">
                                     		<i class="fas fa-trash-alt"></i> Delete
                                     	</a>
                                     </td>

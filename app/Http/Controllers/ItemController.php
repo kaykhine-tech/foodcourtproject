@@ -6,6 +6,8 @@ use App\Item;
 use App\Category;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Storage;
 
 class ItemController extends Controller
 {
@@ -45,6 +47,7 @@ class ItemController extends Controller
         // validation
         $request->validate([
             'name' => 'required|unique:items',
+            'photo' => 'image',
             'code_no' => 'required|unique:items',
             'price' => 'required|numeric|gt:0',
             'discount' => 'nullable|numeric|gt:0'
@@ -58,17 +61,15 @@ class ItemController extends Controller
 
             // itemimg/1665003670_290012.png
             $filePath = $request->file('photo')->storeAs('itemimg',$fileName,'public');
-
-            $path = '/storage/'.$filePath;
         }else{
-            $path = '/storage/itemimg/item.png';
+            $filePath = 'itemimg/item.png';
         }
 
         // data insert
         $item = new Item; // create new object
         $item->code_no = $request->code_no;
         $item->name = $request->name;
-        $item->photo = $path;
+        $item->photo = $filePath;
         $item->price = $request->price;
         $item->discount = $request->discount;
         $item->description = $request->description;
@@ -123,6 +124,7 @@ class ItemController extends Controller
                 'required',
                 Rule::unique('items')->ignore($item->id)
             ],
+            'photo' => 'image',
             'price' => 'required|numeric|gt:0',
             'discount' => 'nullable|numeric|gt:0'
         ]);
@@ -136,15 +138,21 @@ class ItemController extends Controller
             // itemimg/1665003670_290012.png
             $filePath = $request->file('photo')->storeAs('itemimg',$fileName,'public');
 
-            $path = '/storage/'.$filePath;
+            Log::info("Phogo $item->photo");
+
+            // delete old photo
+            if($item->photo!='itemimg/item.png'){
+                Storage::delete('/public/'.$item->photo);
+            }
         }else{
-            $path = '/storage/itemimg/item.png';
+            $filePath = $item->photo;
+            Log::info("Test $filePath");
         }
 
         // data update
         $item->code_no = $request->code_no;
         $item->name = $request->name;
-        $item->photo = $path;
+        $item->photo = $filePath;
         $item->price = $request->price;
         $item->discount = $request->discount;
         $item->description = $request->description;
@@ -163,6 +171,10 @@ class ItemController extends Controller
      */
     public function destroy(Item $item)
     {
+        if($item->photo!='itemimg/item.png'){
+                Storage::delete('/public/'.$item->photo);
+            }
+        
         $item->delete();
 
         // redirect

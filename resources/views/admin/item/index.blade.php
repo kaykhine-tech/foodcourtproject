@@ -39,7 +39,7 @@
                                 <tr>
                                     <td>{{$i++}}</td>
                                     <td>
-                                        <img src="{{asset($item->photo)}}" class="my-img">
+                                        <img src="{{asset('storage/'.$item->photo)}}" class="my-img">
                                         {{$item->name}}
                                     </td>
                                     <td>{{$item->category->name}}</td>

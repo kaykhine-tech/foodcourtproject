@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Storage;
 
 class CategoryController extends Controller
 {
@@ -21,6 +23,7 @@ class CategoryController extends Controller
     {
         $categories = Category::all();
         // dd($categories);
+        // Log::info("Hello Aung Nyi!!!");
         return view('admin.category.index',compact('categories'));
     }
 
@@ -46,7 +49,8 @@ class CategoryController extends Controller
 
         // validation
         $request->validate([
-            'name' => 'required|unique:categories'
+            'name' => 'required|unique:categories',
+            'photo' => 'image'
         ]);
 
         // upload file
@@ -58,18 +62,15 @@ class CategoryController extends Controller
             // categoryimg/1665003670_290012.png
             $filePath = $request->file('photo')->storeAs('categoryimg',$fileName,'public');
 
-            $path = '/storage/'.$filePath;
+            // $path = '/storage/'.$filePath;
+        }else{
+            $filePath = 'categoryimg/category.png';
         }
 
         // data insert
         $category = new Category;
         $category->name = $request->name;
-        if($request->file()){
-            $category->photo = $path;
-        }else{
-            $path = '/storage/categoryimg/category.png';
-            $category->photo = $path;
-        }
+        $category->photo = $filePath;
         $category->save();
 
         // redirect
@@ -111,11 +112,12 @@ class CategoryController extends Controller
 
         // validation
         $request->validate([
-            'name' => 'required'
+            'name' => 'required',
+            'photo' => 'sometimes|image'
         ]);
 
         // upload file
-        if($request->file()){
+        if($request->file()){          
 
             // 1665003670_290012.png
             $fileName = rand().'_'.$request->photo->getClientOriginalName();
@@ -123,19 +125,24 @@ class CategoryController extends Controller
             // categoryimg/1665003670_290012.png
             $filePath = $request->file('photo')->storeAs('categoryimg',$fileName,'public');
 
-            $path = '/storage/'.$filePath;
-
             // delete old photo
-            // if(){
-            //     Storage::delete('/public/categoryimg/'.);
-            // }
+
+            // if($category->photo!='/storage/categoryimg/category.png'){
+            //     $old_photo = str_replace('/storage', '', $category->photo);
+            //     Storage::delete('/public'.$old_photo);
+
+            if($category->photo!='categoryimg/category.png'){
+                Storage::delete('/public/'.$category->photo);
+
+                // unlink(public_path('storage/').$category->photo);
+            }
         }else{
-            $path = $category->photo;
-        }
+            $filePath = $category->photo;
+        } 
 
         // data update
         $category->name = $request->name;
-        $category->photo = $path;
+        $category->photo = $filePath;
         $category->save();
 
         // redirect
@@ -149,11 +156,22 @@ class CategoryController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy(Category $category)
-    {
-        $category->delete();
+    {        
+
         foreach($category->items as $item){
+
+            if($item->photo!='itemimg/item.png'){
+                Storage::delete('/public/'.$item->photo);
+            }
+
             $item->delete();
         }
+
+        if($category->photo!='categoryimg/category.png'){
+            Storage::delete('/public/'.$category->photo);
+        }
+        $category->delete();
+
         return redirect()->route('categories.index');
     }
 }
