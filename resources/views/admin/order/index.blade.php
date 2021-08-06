@@ -11,6 +11,7 @@
                         <thead>
                             <tr>
                                 <th>#</th>
+                                <th>Customer</th>
                                 <th>Order Date</th>
                                 <th>Voucher No</th>
                                 <th>Status</th>
@@ -24,6 +25,7 @@
                             @foreach($orders as $order)
                             <tr>
                                 <td>{{$i++}}</td>
+                                <td>{{$order->user->name}}</td>
                                 <td>
                                     {{Carbon\Carbon::parse($order->orderdate)->format('d-m-Y')}}
                                 </td>
@@ -66,13 +68,13 @@
 @endsection
 @section('script')
 <script type="text/javascript">
-$(document).ready(function(){
-$('.deletebtn').click(function(){
-var id = $(this).data('id');
-// console.log(id);
-$('#deleteModalForm').attr('action',id);
-$('#deleteModal').modal('show');
-})
-})
+    $(document).ready(function(){
+        $('.deletebtn').click(function(){
+            var id = $(this).data('id');
+            // console.log(id);
+            $('#deleteModalForm').attr('action',id);
+            $('#deleteModal').modal('show');
+        })
+    })
 </script>
 @endsection
