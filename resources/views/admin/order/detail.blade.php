@@ -1,6 +1,5 @@
 @extends('layouts.admintemplate')
 @section('content')
-{{-- <h1>{{($order->user)}}</h1> --}}
 <div id="layoutSidenav_content">
 	<main>
 		<div class="container-fluid px-4">
@@ -82,31 +81,43 @@
 										</thead>
 										<tbody>
 											@foreach($order->items as $item)
-												<tr>
-													<td>{{$item->name}}</td>
-													<td>{{$item->code_no}}</td>
-													<td>
-														@if($item->discount)
-															<strike>{{$item->price}} Ks</strike>
-															<span class="d-block">{{$item->discount}} Ks</span>
-														@else
-															{{$item->price}} Ks
-														@endif
-													</td>
-													<td>{{$item->pivot->qty}}</td>
-													<td>{{$item->price * $item->qty}}</td>
-												</tr>
+											<tr>
+												<td>{{$item->name}}</td>
+												<td>{{$item->code_no}}</td>
+												<td>
+													@if($item->discount)
+													<strike>{{$item->price}} Ks</strike>
+													<span class="d-block">{{$item->discount}} Ks</span>
+													@else
+													{{$item->price}} Ks
+													@endif
+												</td>
+												<td>{{$item->pivot->qty}}</td>
+												<td>
+													@if($item->discount)
+													@php
+													$dis_price = $item->discount * $item->pivot->qty;
+													@endphp
+													{{$dis_price}} Ks
+													@else
+													@php
+													$price = $item->price * $item->pivot->qty;
+													@endphp
+													{{$price}} Ks
+													@endif
+												</td>
+											</tr>
 											@endforeach
 										</tbody>
 									</table>
 								</div>
 							</div>
-					</section>
+						</section>
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-</div>
 </main>
 </div>
 @endsection

@@ -19,9 +19,11 @@ Route::get('/', function () {
 
 // CRUD
 Route::middleware('auth','role:admin')->group(function(){
-Route::resource('categories', 'CategoryController'); // 7 methods
-Route::resource('items', 'ItemController'); // 7 methods
-Route::resource('users', 'UserController'); // 7 methods
+    Route::resource('categories', 'CategoryController'); // 7 methods
+    Route::resource('items', 'ItemController'); // 7 methods
+    Route::resource('users', 'UserController'); // 7 methods
+
+    Route::get('dashboard', 'DashboardController@dashboard_data')->name('dashboard.index');
 });
 
 Route::resource('orders', 'OrderController'); // 7 methods
