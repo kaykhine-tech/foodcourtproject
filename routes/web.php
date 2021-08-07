@@ -36,7 +36,7 @@ Route::get('menu', 'FrontendController@menu')->name('frontend.menu');
 Route::get('categoryfilter/{id}', 'FrontendController@category')->name('categoryfilter');
 });
 
-// Route::get('categorydetail')->name('frontend.categorydetail');
+
 // Authentication
 Auth::routes();
 

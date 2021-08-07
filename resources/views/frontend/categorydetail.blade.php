@@ -12,7 +12,7 @@
         <div class="carousel-inner" role="listbox">
 
           <!-- Slide 1 -->
-          <div class="carousel-item active" style="background: url({{asset('frontendtemplate/img/slide/slide2.jpg')}});">
+          <div class="carousel-item active" style="background: url({{asset('frontendtemplate/img/detail.jpg')}});">
             <div class="carousel-container">
               <div class="carousel-content">
                 <h2 class="animate__animated animate__fadeInDown"><span>K&H</span> Food Court</h2>
@@ -44,11 +44,16 @@
           @foreach($categoryfilter as $item)
           <div class="col-lg-4" id="category_id">
             <div class="box">
-              <span>{{$item->id}}</span>
+              {{-- <span>{{$item->id}}</span> --}}
               <h4>{{$item->name}}</h4>
               <img src="{{asset("storage/$item->photo")}}" class="ur-class">
+              @if(!$item->discount)
+              <p>Price:{{$item->price}} Ks</p>
+              <p>No Discount</p>
+              @else
               <p><del>Price:{{$item->price}} Ks</del></p>
               <p>Discount:{{$item->discount}} Ks</p>
+              @endif
               <button class="btn btn-outline-secondary add-to-cart" data-id="{{$item->id}}" data-name="{{$item->name}}" data-photo="{{$item->photo}}" data-price="{{$item->price}}" data-discount="{{$item->discount}}">Add To Cart</button>
             </div>
 

@@ -78,9 +78,9 @@
                                 <td colspan="8"></td>
                                 <td class="checkcart">
                                     @if(!Auth::user('login'))
-                                    <button class="btn btn-success"><a href="{{ route('login')}}">{{ __('Login')}}</a></button>
+                                    <button class="btn btn-outline-dark"><a href="{{ route('login')}}">{{ __('Login')}}</a></button>
                                     @else
-                                    <button class="btn btn-success checkout">Checkout</button>
+                                    <button class="btn btn-outline-dark checkout">Checkout</button>
                                     @endif
                                 </td>
                               </tr>

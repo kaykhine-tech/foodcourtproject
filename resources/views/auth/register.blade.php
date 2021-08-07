@@ -1,12 +1,16 @@
 @extends('layouts.app')
 @section('content')
+
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
+                <div class="card-header" ><b>{{ __('Register') }}</b></div>
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">
+                        <div class="form-group row float-lg-left">
+                            <figure><img src="{{asset('frontendtemplate/img/register2.jpg')}}" alt="sing up image" width="250" height="250"></figure>
+                        </div>
                         @csrf
                         <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
@@ -70,7 +74,7 @@
                             </div>
                         </div>                        
                         <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
+                            <div class="col-md-6 offset-md-8">
                                 <button type="submit" class="btn btn-primary">
                                 {{ __('Register') }}
                                 </button>

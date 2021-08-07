@@ -13,7 +13,7 @@
         <div class="carousel-inner" role="listbox">
 
           <!-- Slide 1 -->
-          <div class="carousel-item active" style="background: url({{asset('frontendtemplate/img/slide/slide2.jpg')}});">
+          <div class="carousel-item active" style="background: url({{asset('frontendtemplate/img/slide/slide3.jpg')}});">
             <div class="carousel-container">
               <div class="carousel-content">
                 <h2 class="animate__animated animate__fadeInDown"><span>K&H</span> Food Court</h2>
@@ -41,7 +41,7 @@
           </div>
 
           <!-- Slide 3 -->
-          <div class="carousel-item" style="background: url({{asset('frontendtemplate/img/slide/slide3.jpg')}});">
+          <div class="carousel-item" style="background: url({{asset('frontendtemplate/img/slide/slide2.jpg')}});">
             <div class="carousel-background"><img src="assets/img/slide/slide-3.jpg" alt=""></div>
             <div class="carousel-container">
               <div class="carousel-content">
@@ -83,7 +83,7 @@
           @foreach($categories as $category)
           <div class="col-lg-4">
             <div class="box">
-              <span>{{$category->id}}</span>
+              {{-- <span>{{$category->id}}</span> --}}
               <h4>{{$category->name}}</h4>
               
               <a href="{{route('categoryfilter',$category->id)}}"><img src="{{asset("storage/$category->photo")}}" class="ur-class"></a>
@@ -108,15 +108,19 @@
         </div>
 
         <div class="row">
-          @foreach($items as $item)
+         
+          @foreach($dis_items as $item)
           <div class="col-lg-4">
             <div class="box">
-              <span>{{$item->id}}</span>
+              {{-- <span>{{$item->id}}</span> --}}
               <h4>{{$item->name}}</h4>
               <img src="{{asset("storage/$item->photo")}}" class="ur-class">
-
-              <p><del>Price:{{$item->price}} Ks</del></p>
+              @if(!$item->discount)
+              <p>Price:{{$item->price}} Ks</p>
+              @else
+              <p>Price:{{$item->price}} Ks</p>
               <p>Discount:{{$item->discount}} Ks</p>
+              @endif
               {{-- <button class="btn btn-outline-secondary add-to-cart">Add To Cart</button> --}}
               <button class="btn btn-outline-secondary add-to-cart" data-id="{{$item->id}}" data-name="{{$item->name}}" data-photo="{{$item->photo}}" data-price="{{$item->price}}" data-discount="{{$item->discount}}">Add To Cart</button>
             </div>
@@ -124,6 +128,7 @@
           </div>
           @endforeach
         </div>
+       
 
       </div>
     </section><!-- End Whu Us Section -->
