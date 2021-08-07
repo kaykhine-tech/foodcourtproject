@@ -11,7 +11,8 @@ class FrontendController extends Controller
     public function home(){
         $categories = Category::all();
         $items = Item::all();
-        $dis_items = Item::where('discount')->get();
+        $dis_items = Item::where('discount','!=','null')->get();
+        // dd($dis_items);
         return view('frontend.home', compact('categories','items', 'dis_items'));
         
     }

@@ -98,7 +98,7 @@
     </section><!-- End Whu Us Section -->
 
 
-      <!-- ======= Whu Us Section ======= -->
+      <!-- ======= Discount Section ======= -->
     <section id="why-us" class="why-us">
       <div class="container">
 

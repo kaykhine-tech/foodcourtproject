@@ -49,7 +49,7 @@
               <img src="{{asset("storage/$item->photo")}}" class="ur-class">
               @if(!$item->discount)
               <p>Price:{{$item->price}} Ks</p>
-              <p>No Discount</p>
+              {{-- <p>No Discount</p> --}}
               @else
               <p><del>Price:{{$item->price}} Ks</del></p>
               <p>Discount:{{$item->discount}} Ks</p>
