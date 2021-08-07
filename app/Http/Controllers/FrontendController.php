@@ -11,7 +11,9 @@ class FrontendController extends Controller
     public function home(){
         $categories = Category::all();
         $items = Item::all();
-        return view('frontend.home', compact('categories', 'items'));
+        $dis_items = Item::where('discount','!=','null')->get();
+        // dd($dis_items);
+        return view('frontend.home', compact('categories','items', 'dis_items'));
         
     }
 
@@ -34,6 +36,14 @@ class FrontendController extends Controller
         $items = Item::all();
         return view('frontend.menu', compact('items'));
         
+    }
+
+    public function category(Request $request, $id){
+        //dd ($id);
+        $categoryfilter = Item::where('category_id',$id)->get();
+        //dd($categoryfilter);
+        return view('frontend.categorydetail',compact('categoryfilter'));
+
     }
 
 

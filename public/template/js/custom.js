@@ -80,7 +80,7 @@ $(document).ready(function(){
         //console.log(price);
 
         html+= `<tr>
-            <td><button class="removebtn btn-danger btn-sm" data-id="${i}">x</button>${item.id}</td>
+            <td><button class="removebtn btn-danger btn-sm" data-id="${i}">x</button></td>
             <td>
               ${item.name}
               <img src="http://localhost:8000/storage/${item.photo}" class="w-25">
