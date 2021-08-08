@@ -8,11 +8,11 @@
 				<div class="col-xl-3 col-md-6">
 					<div class="card bg-primary text-white mb-4">
 						<div class="card-body">
-							<h3 class="card-title h2">{{number_format($today_income)}}</h3>
+							<h3 class="card-title h2">{{number_format($today_order_count)}}</h3>
 							<span>
 								{{-- <i class="fa fa-shopping-basket" aria-hidden="true"></i> --}}
 								<i class="fas fa-dollar-sign"></i>
-								Today Orders -> {{number_format($today_order_count)}}
+								Today Orders
 							</span>
 						</div>
 					</div>

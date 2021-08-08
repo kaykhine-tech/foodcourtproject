@@ -7,7 +7,7 @@
 			<div class="card mt-4 mb-4 shadow ">
 				<div class="card-header">
 					<div class="col-md-12 mb-3">
-						<a href="" data-id="{{route('orders.order_cancel',$order->id)}}" data-bs-toggle="modal" class="btn my-btn confirm_btn" id="confirm">
+						<a href="" data-id="{{route('orders.order_confirm',$order->id)}}" data-bs-toggle="modal" class="btn my-btn confirm_btn" id="confirm">
                     		<i class="fas fa-check"></i> Confirm
                     	</a>
 						<a href="" data-id="{{route('orders.order_cancel',$order->id)}}" data-bs-toggle="modal" class="btn my-btn cancel_btn" id="cancel">
@@ -44,7 +44,7 @@
 								</div>
 								<div class="col-4">
 									<b>Invoice #{{$order->voucher_no}}</b><br><br>
-									<b>Order Date: {{date('F d, Y h:mA', strtotime($order->date))}}</b><br>
+									<b>Order Date: {{date('F d, Y h:mA', strtotime($order->order_date))}}</b><br>
 									<b>Total: {{number_format($order->total)}} Ks<br>
 								</div>
 							</div>

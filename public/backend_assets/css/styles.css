@@ -4253,7 +4253,7 @@ textarea.form-control-lg {
   color: #ffb03b;
 }
 .navbar-dark .navbar-brand:hover, .navbar-dark .navbar-brand:focus {
-  color: #fff;
+  color: white;
 }
 .navbar-dark .navbar-nav .nav-link {
   color: #fff;
