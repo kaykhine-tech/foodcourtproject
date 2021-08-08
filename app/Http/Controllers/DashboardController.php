@@ -22,6 +22,10 @@ class DashboardController extends Controller
                         ->get();
         $today_order_count = count($today_orders);
 
+        $today_income = DB::table('orders')
+                        ->where('order_date', Carbon::now()->toDateString('Y-m-d'))
+                        ->sum('total');
+
         // Customer Count
         $customer_count = User::role('customer')->count();
 
@@ -35,7 +39,6 @@ class DashboardController extends Controller
         $jan_last = strtotime('last day of january');
         $jan_start = date('Y-m-d', $jan_first);
         $jan_end = date('Y-m-d', $jan_last);
-
         $jan_sales = DB::table('orders')
                     ->whereBetween('order_date', [$jan_start,$jan_end])
                     ->get();
@@ -48,7 +51,6 @@ class DashboardController extends Controller
         $feb_last = strtotime('last day of february');
         $feb_start = date('Y-m-d', $feb_first);
         $feb_end = date('Y-m-d', $feb_last);
-
         $feb_sales = DB::table('orders')
                     ->whereBetween('order_date', [$feb_start,$feb_end])
                     ->get();
@@ -61,7 +63,6 @@ class DashboardController extends Controller
         $mar_last = strtotime('last day of march');
         $mar_start = date('Y-m-d', $mar_first);
         $mar_end = date('Y-m-d', $mar_last);
-
         $mar_sales = DB::table('orders')
                     ->whereBetween('order_date', [$mar_start,$mar_end])
                     ->get();
@@ -74,7 +75,6 @@ class DashboardController extends Controller
         $apr_last = strtotime('last day of april');
         $apr_start = date('Y-m-d', $apr_first);
         $apr_end = date('Y-m-d', $apr_last);
-
         $apr_sales = DB::table('orders')
                     ->whereBetween('order_date', [$apr_start,$apr_end])
                     ->get();
@@ -87,7 +87,6 @@ class DashboardController extends Controller
         $may_last = strtotime('last day of may');
         $may_start = date('Y-m-d', $may_first);
         $may_end = date('Y-m-d', $may_last);
-
         $may_sales = DB::table('orders')
                     ->whereBetween('order_date', [$may_start,$may_end])
                     ->get();
@@ -100,7 +99,6 @@ class DashboardController extends Controller
         $jun_last = strtotime('last day of june');
         $jun_start = date('Y-m-d', $jun_first);
         $jun_end = date('Y-m-d', $jun_last);
-
         $jun_sales = DB::table('orders')
                     ->whereBetween('order_date', [$jun_start,$jun_end])
                     ->get();
@@ -113,7 +111,6 @@ class DashboardController extends Controller
         $jul_last = strtotime('last day of july');
         $jul_start = date('Y-m-d', $jul_first);
         $jul_end = date('Y-m-d', $jul_last);
-
         $jul_sales = DB::table('orders')
                     ->whereBetween('order_date', [$jul_start,$jul_end])
                     ->get();
@@ -126,7 +123,6 @@ class DashboardController extends Controller
         $aug_last = strtotime('last day of August');
         $aug_start = date('Y-m-d', $aug_first);
         $aug_end = date('Y-m-d', $aug_last);
-
         $aug_sales = DB::table('orders')
                     ->whereBetween('order_date', [$aug_start,$aug_end])
                     ->get();
@@ -139,7 +135,6 @@ class DashboardController extends Controller
         $sep_last = strtotime('last day of september');
         $sep_start = date('Y-m-d', $sep_first);
         $sep_end = date('Y-m-d', $sep_last);
-
         $sep_sales = DB::table('orders')
                     ->whereBetween('order_date', [$sep_start,$sep_end])
                     ->get();
@@ -152,7 +147,6 @@ class DashboardController extends Controller
         $oct_last = strtotime('last day of october');
         $oct_start = date('Y-m-d', $oct_first);
         $oct_end = date('Y-m-d', $oct_last);
-
         $oct_sales = DB::table('orders')
                     ->whereBetween('order_date', [$oct_start,$oct_end])
                     ->get();
@@ -165,7 +159,6 @@ class DashboardController extends Controller
         $nov_last = strtotime('last day of november');
         $nov_start = date('Y-m-d', $nov_first);
         $nov_end = date('Y-m-d', $nov_last);
-
         $nov_sales = DB::table('orders')
                     ->whereBetween('order_date', [$nov_start,$nov_end])
                     ->get();
@@ -178,7 +171,6 @@ class DashboardController extends Controller
         $dec_last = strtotime('last day of december');
         $dec_start = date('Y-m-d', $dec_first);
         $dec_end = date('Y-m-d', $dec_last);
-
         $dec_sales = DB::table('orders')
                     ->whereBetween('order_date', [$dec_start,$dec_end])
                     ->get();
@@ -189,8 +181,8 @@ class DashboardController extends Controller
 
         $monthly_sale = array($jan_sum,$feb_sum,$mar_sum,$apr_sum,$may_sum,$jul_sum,$jul_sum,$aug_sum,$sep_sum,$oct_sum,$nov_sum,$dec_sum);
 
-        Log::info($monthly_sale);
+        // Log::info($monthly_sale);
 
-        return view('admin.dashboard.index',compact('today_order_count','customer_count','category_count','item_count','monthly_sale'));
+        return view('admin.dashboard.index',compact('today_income','today_order_count','customer_count','category_count','item_count','monthly_sale'));
     }
 }

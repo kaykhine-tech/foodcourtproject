@@ -4,16 +4,15 @@
 	<main>
 		<div class="container-fluid px-4">
 			<h3 class="mt-4">Dashboard</h3>
-			{{-- {{$monthly_sale[0]}} --}}
 			<div class="row">
 				<div class="col-xl-3 col-md-6">
 					<div class="card bg-primary text-white mb-4">
 						<div class="card-body">
-							<h3 class="card-title h2">{{$today_order_count}}</h3>
+							<h3 class="card-title h2">{{number_format($today_income)}}</h3>
 							<span>
 								{{-- <i class="fa fa-shopping-basket" aria-hidden="true"></i> --}}
 								<i class="fas fa-dollar-sign"></i>
-								Today Orders
+								Today Orders -> {{number_format($today_order_count)}}
 							</span>
 						</div>
 					</div>
@@ -21,7 +20,7 @@
 				<div class="col-xl-3 col-md-6">
 					<div class="card bg-warning text-white mb-4">
 						<div class="card-body">
-							<h3 class="card-title h2">{{$customer_count}}</h3>
+							<h3 class="card-title h2">{{number_format($customer_count)}}</h3>
 							<span>
 								<i class="fas fa-users" aria-hidden="true"></i>
 								Customers
@@ -32,7 +31,7 @@
 				<div class="col-xl-3 col-md-6">
 					<div class="card bg-success text-white mb-4">
 						<div class="card-body">
-							<h3 class="card-title h2">{{$category_count}}</h3>
+							<h3 class="card-title h2">{{number_format($category_count)}}</h3>
 							<span>
 								<i class="fas fa-tags" aria-hidden="true"></i>
 								Categories
@@ -43,7 +42,7 @@
 				<div class="col-xl-3 col-md-6">
 					<div class="card bg-danger text-white mb-4">
 						<div class="card-body">
-							<h3 class="card-title h2">{{$item_count}}</h3>
+							<h3 class="card-title h2">{{number_format($item_count)}}</h3>
 							<span>
 								<i class="fas fa-hamburger" aria-hidden="true"></i>
 								Items
@@ -53,16 +52,18 @@
 				</div>
 			</div>
 			<div class="row">
-				{{-- <div class="col-xl-6">
+				<div class="col-xl">
 					<div class="card mb-4">
 						<div class="card-header">
 							<i class="fas fa-chart-area me-1"></i>
-							Area Chart Example
+							Monthly Sales
 						</div>
-						<div class="card-body"><canvas id="myAreaChart" width="100%" height="40"></canvas></div>
+						<div class="card-body">
+							<canvas id="myAreaChart" width="100%" height="40"></canvas>
+						</div>
 					</div>
-				</div> --}}
-				<div class="col-xl">
+				</div>
+				{{-- <div class="col-xl">
 					<div class="card mb-4">
 
 						<div class="card-header">
@@ -73,7 +74,7 @@
 							<canvas id="myBarChart" width="100%" height="40"></canvas>
 						</div>
 					</div>
-				</div>
+				</div> --}}
 			</div>
 		</div>
 	</main>
@@ -81,6 +82,9 @@
 @endsection
 
 <script type="text/javascript">
-	var mydata={!! json_encode($monthly_sale) !!};
+	var bar_data = {!! json_encode($monthly_sale) !!};
+	var graph_data = @json($monthly_sale);
+
 	//pass 'mydata' variable to /public/backend_assets/demo/chart-bar-demo.js
+	//pass 'mydata' variable to /public/backend_assets/demo/chart-area-demo.js
 </script>

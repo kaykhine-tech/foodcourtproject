@@ -45,10 +45,13 @@
                                     <td>{{$item->category->name}}</td>
                                     <td>
                                       @if($item->discount)
-                                      <strike>{{$item->price}} Ks</strike> 
-                                      <span class="d-block">{{$item->discount}} Ks</span>
+                                          <strike>
+                                            {{number_format($item->price)}} Ks
+                                        </strike> 
+                                          <span class="d-block">
+                                            {{number_format($item->discount)}} Ks</span>
                                       @else
-                                      {{$item->price}} Ks
+                                      {{number_format($item->price)}} Ks
                                       @endif                  
                                     </td>
                                     <td>
@@ -96,7 +99,7 @@
         $(document).ready(function(){
             $('.deletebtn').click(function(){
                 var id = $(this).data('id');
-                // console.log(id);
+                
                 $('#deleteModalForm').attr('action',id);
                 $('#deleteModal').modal('show');
             })

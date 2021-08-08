@@ -14,10 +14,12 @@
   color: #000;
   border: 2px solid #ffb03b;
 }
+
 .my-btn:hover {
   background: #ffb03b;
   color: #000;
 }
+
 .my-submit-btn {
   background: #ffb03b;
   color: #fff;
@@ -29,26 +31,76 @@
   transition: 0.3s;
   white-space: nowrap;
 }
+
 .my-submit-btn:hover {
   background: #ffa012;
   color: #fff;
 }
+
+.my-icon-btn {
+  background: #ffb03b;
+  color: #fff;
+  padding: 10px 15px;
+  transition: 0.3s;
+  white-space: nowrap
+}
+
+.my-icon-btn:hover {
+  background: #ffa012;
+  color: #fff;
+}
+
 @font-face{
   font-family: 'my-satisfy';
   src:  url('../custom_fonts/Satisfy/Satisfy-Regular.ttf');
 }
+
 .my-font{
   font-family: "my-satisfy";
 }
+
 .my-img{
   width: 75px;
   height: 70px;
   margin-right: 5px;
 }
+
 th, td{
   font-size: 1rem;
 }
+
 .user-name{
   font-family: "my-satisfy";
   color: #ffb03b;
+}
+
+.my-badge {
+  display: inline-block;
+  padding: 2px;
+  font-weight: bold;
+  font-size: 13px;
+  border-radius: 0.25rem;
+  -webkit-transition: background-color 0.3s ease-in-out, border-color 0.3s ease-in-out, -webkit-box-shadow 0.3s cubic-bezier(0.35, 0, 0.25, 1), -webkit-transform 0.2s cubic-bezier(0.35, 0, 0.25, 1);
+  transition: background-color 0.3s ease-in-out, border-color 0.3s ease-in-out, -webkit-box-shadow 0.3s cubic-bezier(0.35, 0, 0.25, 1), -webkit-transform 0.2s cubic-bezier(0.35, 0, 0.25, 1);
+  -o-transition: box-shadow 0.3s cubic-bezier(0.35, 0, 0.25, 1), transform 0.2s cubic-bezier(0.35, 0, 0.25, 1), background-color 0.3s ease-in-out, border-color 0.3s ease-in-out;
+  transition: box-shadow 0.3s cubic-bezier(0.35, 0, 0.25, 1), transform 0.2s cubic-bezier(0.35, 0, 0.25, 1), background-color 0.3s ease-in-out, border-color 0.3s ease-in-out;
+  transition: box-shadow 0.3s cubic-bezier(0.35, 0, 0.25, 1), transform 0.2s cubic-bezier(0.35, 0, 0.25, 1), background-color 0.3s ease-in-out, border-color 0.3s ease-in-out, -webkit-box-shadow 0.3s cubic-bezier(0.35, 0, 0.25, 1), -webkit-transform 0.2s cubic-bezier(0.35, 0, 0.25, 1);
+}
+.disabled {
+  font-weight: 600;
+  font-size: 13px;
+  /*letter-spacing: 1px;*/
+  text-transform: uppercase;
+  display: inline-block;
+  padding: 12px 12px;
+  border-radius: 50px;
+  transition: 0.5s;
+  line-height: 1;
+  /*margin: 0 10px;*/
+  -webkit-animation-delay: 0.8s;
+  animation-delay: 0.8s;
+  border: 2px solid #ffb03b;
+  pointer-events: none;
+  color: #ccc;
+  text-decoration: none;
 }

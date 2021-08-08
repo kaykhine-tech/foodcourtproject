@@ -27,7 +27,7 @@ class HomeController extends Controller
     {
         $roles = Auth::user()->getRoleNames();
         if($roles[0] == 'admin'){
-            return redirect()->route('categories.index');
+            return redirect()->route('dashboard.index');
         }else{
             return redirect()->route('frontend.home');
         }        

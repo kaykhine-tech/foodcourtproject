@@ -19,11 +19,12 @@ Route::get('/', function () {
 
 // CRUD
 Route::middleware('auth','role:admin')->group(function(){
+    Route::get('dashboard', 'DashboardController@dashboard_data')->name('dashboard.index');
     Route::resource('categories', 'CategoryController'); // 7 methods
     Route::resource('items', 'ItemController'); // 7 methods
     Route::resource('users', 'UserController'); // 7 methods
-
-    Route::get('dashboard', 'DashboardController@dashboard_data')->name('dashboard.index');
+    Route::put('order_confirm/{order}', 'OrderController@order_confirm')->name('orders.order_confirm');
+    Route::put('order_cancel/{order}', 'OrderController@order_cancel')->name('orders.order_cancel');
 });
 
 Route::resource('orders', 'OrderController'); // 7 methods

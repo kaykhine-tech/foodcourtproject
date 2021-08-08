@@ -30,7 +30,15 @@
                                     {{Carbon\Carbon::parse($order->orderdate)->format('d-m-Y')}}
                                 </td>
                                 <td>{{$order->voucher_no}}</td>
-                                <td>{{$order->status}}</td>
+                                <td>
+                                    @if($order->status == 0)
+                                        <span class="my-badge bg-warning">Pending</span>
+                                    @elseif($order->status == 1)
+                                        <span class="my-badge bg-success">Success</span>
+                                    @elseif($order->status == 2)
+                                        <span class="my-badge bg-danger">Cancel</span>
+                                    @endif
+                                </td>
                                 <td>
                                     <a href="{{route('orders.show',$order->id)}}" class="btn my-btn">
                                         <i class="fas fa-info-circle"></i> Details
@@ -66,6 +74,7 @@
     </div>
 </div>
 @endsection
+
 @section('script')
 <script type="text/javascript">
     $(document).ready(function(){

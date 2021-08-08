@@ -50,7 +50,7 @@ class ItemController extends Controller
             'photo' => 'image',
             'code_no' => 'required|unique:items',
             'price' => 'required|numeric|gt:0',
-            'discount' => 'nullable|numeric|gt:0'
+            'discount' => 'nullable|numeric|gt:0|lt:price'
         ]);
 
         // upload file
@@ -126,7 +126,7 @@ class ItemController extends Controller
             ],
             'photo' => 'image',
             'price' => 'required|numeric|gt:0',
-            'discount' => 'nullable|numeric|gt:0'
+            'discount' => 'nullable|numeric|gt:0|lt:price'
         ]);
 
         // upload file

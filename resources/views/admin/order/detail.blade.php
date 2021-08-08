@@ -7,34 +7,15 @@
 			<div class="card mt-4 mb-4 shadow ">
 				<div class="card-header">
 					<div class="col-md-12 mb-3">
-						<form class="d-inline-block" onsubmit="return confirm('Are you sure to CONFIRM?')" action="#" method="POST">
-							<input type="hidden" name="id" value="">
-							<input type="hidden" name="status" value="1">
-							<button class="btn btn-outline-info">
-							<i class="icofont-tick-mark">Confirm</i>
-							</button>
-						</form>
-						<form class="d-inline-block" onsubmit="return confirm('Are you sure to DELIVER?')" action="#" method="POST">
-							<input type="hidden" name="id" value="">
-							<input type="hidden" name="status" value="2">
-							<button class="btn btn-outline-dark">
-							<i class="icofont-delivery-time">Deliver</i>
-							</button>
-						</form>
-						<form class="d-inline-block" onsubmit="return confirm('Are you sure to SUCCESS?')" action="#" method="POST">
-							<input type="hidden" name="id" value="">
-							<input type="hidden" name="status" value="3">
-							<button class="btn btn-outline-success">
-							<i class="icofont-thumbs-upk">Success</i>
-							</button>
-						</form>
-						<form class="d-inline-block" onsubmit="return confirm('Are you sure to CANCEL?')" action="#" method="POST">
-							<input type="hidden" name="id" value="">
-							<input type="hidden" name="status" value="4">
-							<button class="btn btn-outline-danger">
-							<i class="icofont-close">Cancel</i>
-							</button>
-						</form>
+						<a href="" data-id="{{route('orders.order_cancel',$order->id)}}" data-bs-toggle="modal" class="btn my-btn confirm_btn" id="confirm">
+                    		<i class="fas fa-check"></i> Confirm
+                    	</a>
+						<a href="" data-id="{{route('orders.order_cancel',$order->id)}}" data-bs-toggle="modal" class="btn my-btn cancel_btn" id="cancel">
+                    		<i class="fas fa-times"></i> Cancel
+                    	</a>
+						<a href="{{route('orders.index')}}" class="btn my-icon-btn float-end">
+			                <i class="fas fa-angle-double-left"></i>
+			            </a>
 					</div>
 				</div>
 				<div class="card-body">
@@ -64,7 +45,7 @@
 								<div class="col-4">
 									<b>Invoice #{{$order->voucher_no}}</b><br><br>
 									<b>Order Date: {{date('F d, Y h:mA', strtotime($order->date))}}</b><br>
-									<b>Total: {{$order->total}} Ks<br>
+									<b>Total: {{number_format($order->total)}} Ks<br>
 								</div>
 							</div>
 							<div class="row">
@@ -86,24 +67,28 @@
 												<td>{{$item->code_no}}</td>
 												<td>
 													@if($item->discount)
-													<strike>{{$item->price}} Ks</strike>
-													<span class="d-block">{{$item->discount}} Ks</span>
+														<strike>
+															{{number_format($item->price)}} Ks
+														</strike>
+														<span class="d-block">
+															{{number_format($item->discount)}} Ks
+														</span>
 													@else
-													{{$item->price}} Ks
+														{{number_format($item->price)}} Ks
 													@endif
 												</td>
 												<td>{{$item->pivot->qty}}</td>
 												<td>
 													@if($item->discount)
 													@php
-													$dis_price = $item->discount * $item->pivot->qty;
+														$dis_price = $item->discount * $item->pivot->qty;
 													@endphp
-													{{$dis_price}} Ks
+														{{number_format($dis_price)}} Ks
 													@else
 													@php
-													$price = $item->price * $item->pivot->qty;
+														$price = $item->price * $item->pivot->qty;
 													@endphp
-													{{$price}} Ks
+														{{number_format($price)}} Ks
 													@endif
 												</td>
 											</tr>
@@ -120,4 +105,75 @@
 	</div>
 </main>
 </div>
+
+<div class="modal fade" id="confirmModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form method="post" action="" id="confirmModalForm">
+                @csrf
+                @method('PUT')
+                <div class="modal-header">
+                    <h4 class="modal-title">Are you sure to confirm the order?</h4>
+                </div>
+                <div class="modal-footer">
+                    <input type="submit" name="btnsubmit" value="Yes" class="btn my-btn">
+                    <button type="button" class="btn my-btn" data-bs-dismiss="modal">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="cancelModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form method="post" action="" id="cancelModalForm">
+                @csrf
+                @method('PUT')
+                <div class="modal-header">
+                    <h4 class="modal-title">Are you sure to cancel the order?</h4>
+                </div>
+                <div class="modal-footer">
+                    <input type="submit" name="btnsubmit" value="Yes" class="btn my-btn">
+                    <button type="button" class="btn my-btn" data-bs-dismiss="modal">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@endsection
+
+@section('script')
+    <script type="text/javascript">
+        $(document).ready(function(){
+
+            $('.confirm_btn').click(function(){
+                var id = $(this).data('id');
+                
+                $('#confirmModalForm').attr('action',id);
+                $('#confirmModal').modal('show');
+            })
+
+            $('.cancel_btn').click(function(){
+                var id = $(this).data('id');
+                
+                $('#cancelModalForm').attr('action',id);
+                $('#cancelModal').modal('show');
+            })
+
+            var status = {!! json_encode($order->status) !!};
+
+            if(status == 1){
+            	var element = document.getElementById("confirm");
+				element.setAttribute("class", "disabled");
+		    }
+		    else if(status == 2){
+		    	var confirm_element = document.getElementById("confirm");
+		    	var cancel_element = document.getElementById("cancel");
+		    	confirm_element.setAttribute("class", "disabled"); 
+				cancel_element.setAttribute("class", "disabled"); 
+		    }
+        })
+    </script>
 @endsection

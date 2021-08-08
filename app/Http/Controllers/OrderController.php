@@ -119,4 +119,20 @@ class OrderController extends Controller
         // redirect
         return redirect()->route('orders.index');
     }
+    public function order_confirm(Request $request, Order $order)
+    {
+        $order->status = 1;
+        $order->save();
+
+        // redirect
+        return redirect()->route('orders.index');
+    }
+    public function order_cancel(Request $request, Order $order)
+    {
+        $order->status = 2;
+        $order->save();
+
+        // redirect
+        return redirect()->route('orders.index');
+    }
 }
