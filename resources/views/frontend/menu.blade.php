@@ -16,7 +16,7 @@
           <div class="carousel-item active" style="background: url({{asset('frontendtemplate/img/menu.jpg')}});">
             <div class="carousel-container">
               <div class="carousel-content">
-                <h2 class="animate__animated animate__fadeInDown"><span>K&H</span> Menu List</h2>
+                <h2 class="animate__animated animate__fadeInDown"><span>K&H</span>Food Menu List</h2>
                 <p class="animate__animated animate__fadeInUp">Welcome From Our K&H Food Court ! You can browse our menu page and if something you want to eat, you can order from us. We're warmly welcome all of you. Thank you !</p>
                 <div>
                   <a href="{{route('frontend.home')}}" class="btn-menu animate__animated animate__fadeInUp scrollto">HOME</a>
