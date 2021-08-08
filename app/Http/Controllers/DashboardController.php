@@ -19,12 +19,13 @@ class DashboardController extends Controller
         // Today Orders
         $today_orders = DB::table('orders')
                         ->where('order_date', Carbon::now()->toDateString('Y-m-d'))
+                        ->where('status','!=',2)
                         ->get();
         $today_order_count = count($today_orders);
 
-        $today_income = DB::table('orders')
-                        ->where('order_date', Carbon::now()->toDateString('Y-m-d'))
-                        ->sum('total');
+        // $today_income = DB::table('orders')
+        //                 ->where('order_date', Carbon::now()->toDateString('Y-m-d'))
+        //                 ->sum('total');
 
         // Customer Count
         $customer_count = User::role('customer')->count();
@@ -183,6 +184,6 @@ class DashboardController extends Controller
 
         // Log::info($monthly_sale);
 
-        return view('admin.dashboard.index',compact('today_income','today_order_count','customer_count','category_count','item_count','monthly_sale'));
+        return view('admin.dashboard.index',compact('today_order_count','customer_count','category_count','item_count','monthly_sale'));
     }
 }
