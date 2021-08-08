@@ -36,6 +36,7 @@ Route::get('about', 'FrontendController@about')->name('frontend.about');
 Route::get('contact', 'FrontendController@contact')->name('frontend.contact');
 Route::get('cart', 'FrontendController@cart')->name('frontend.cart');
 Route::get('menu', 'FrontendController@menu')->name('frontend.menu');
+//Route::get('menufilter', 'FrontendController@menu')->name('menufilter');
 Route::get('categoryfilter/{id}', 'FrontendController@category')->name('categoryfilter');
 });
 
