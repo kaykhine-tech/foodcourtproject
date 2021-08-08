@@ -32,6 +32,7 @@ class FrontendController extends Controller
         
     }
 
+
     public function menu(){
         $items = Item::all();
         return view('frontend.menu', compact('items'));

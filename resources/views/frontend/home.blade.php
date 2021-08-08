@@ -3,6 +3,7 @@
 @section('content')
 
 
+
 <!-- ======= Hero Section ======= -->
   <section id="hero">
     <div class="hero-container">
@@ -136,4 +137,28 @@
 @endsection
 @section('script')
 <script type="text/javascript" src="{{asset('template/js/custom.js')}}"></script>
+<script type="text/javascript">
+@if(Session::has('message'))
+    var type="{{Session::get('alert-type','info')}}"
+
+
+    switch(type){
+        case 'info':
+        toastr.info("{{ Session::get('message') }}");
+        break;
+        case 'success':
+        toastr.success("{{ Session::get('message') }}",toastr.options={
+            "closeButton":true,
+            "positionClass":"toast-top-center",
+        });
+        break;
+        case 'warning':
+        toastr.warning("{{ Session::get('message') }}");
+        break;
+        case 'error':
+        toastr.error("{{ Session::get('message') }}");
+        break;
+    }
+    @endif
+</script>
 @endsection
