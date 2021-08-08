@@ -26,7 +26,7 @@
 						    <label for="inputPhoto" class="col-sm-2 col-form-label">Photo</label>
 						    <div class="col-sm-10">
 						    	<input type="file" name="photo" class="form-control-file" id="inputPhoto">
-						    	<img src="{{$category->photo}}" alt="photo" class="w-25">
+						    	<img id="preview" src="{{asset('storage/'.$category->photo)}}" alt="photo" class="w-25">
 						    	@if ($errors->has('photo'))
 				                    <span class="text-danger">{{ $errors->first('photo') }}</span>
 				                @endif
@@ -44,4 +44,17 @@
             </div>
         </main>
 	</div>
+@endsection
+
+@section('script')
+<script type="text/javascript">
+        $(document).ready(function(){
+			inputPhoto.onchange = evt => {
+			  const [file] = inputPhoto.files
+			  if (file) {
+			    preview.src = URL.createObjectURL(file)
+			  }
+			}
+		})
+</script>
 @endsection

@@ -34,7 +34,7 @@
 							<label for="inputPhoto" class="col-sm-2 col-form-label">Photo</label>
 							<div class="col-sm-10">
 								<input type="file" name="photo" class="form-control-file" id="inputPhoto">
-								<img src="{{$item->photo}}" alt="photo" class="w-25">
+								<img id="preview" src="{{asset('storage/'.$item->photo)}}" alt="photo" class="w-25">
 							</div>
 						</div>
 						<div class="row mb-3">
@@ -89,4 +89,17 @@
 		</div>
 	</main>
 </div>
+@endsection
+
+@section('script')
+<script type="text/javascript">
+        $(document).ready(function(){
+			inputPhoto.onchange = evt => {
+			  const [file] = inputPhoto.files
+			  if (file) {
+			    preview.src = URL.createObjectURL(file)
+			  }
+			}
+		})
+</script>
 @endsection

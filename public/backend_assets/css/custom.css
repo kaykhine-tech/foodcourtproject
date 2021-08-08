@@ -55,9 +55,9 @@
   src:  url('../custom_fonts/Satisfy/Satisfy-Regular.ttf');
 }
 
-.my-font{
+/*.my-font{
   font-family: "my-satisfy";
-}
+}*/
 
 .my-img{
   width: 75px;
@@ -70,7 +70,7 @@ th, td{
 }
 
 .user-name{
-  font-family: "my-satisfy";
+  /*font-family: "my-satisfy";*/
   color: #ffb03b;
 }
 
