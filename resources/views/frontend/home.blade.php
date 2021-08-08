@@ -118,7 +118,7 @@
               @if(!$item->discount)
               <p>Price:{{$item->price}} Ks</p>
               @else
-              <p>Price:{{$item->price}} Ks</p>
+              <p><del>Price:{{$item->price}} Ks</del></p>
               <p>Discount:{{$item->discount}} Ks</p>
               @endif
               {{-- <button class="btn btn-outline-secondary add-to-cart">Add To Cart</button> --}}
