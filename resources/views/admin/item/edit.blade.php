@@ -94,12 +94,12 @@
 @section('script')
 <script type="text/javascript">
         $(document).ready(function(){
-			inputPhoto.onchange = evt => {
-			  const [file] = inputPhoto.files
-			  if (file) {
-			    preview.src = URL.createObjectURL(file)
-			  }
-			}
-		})
+		inputPhoto.onchange = evt => {
+		  const [file] = inputPhoto.files
+		  if (file) {
+		    preview.src = URL.createObjectURL(file)
+		  }
+		}
+	})
 </script>
 @endsection

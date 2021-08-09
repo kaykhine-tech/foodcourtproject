@@ -5,7 +5,7 @@
   text-transform: uppercase;
   display: inline-block;
   padding: 12px 12px;
-  border-radius: 50px;
+  border-radius: 20px;
   transition: 0.5s;
   line-height: 1;
   /*margin: 0 10px;*/
@@ -23,7 +23,7 @@
 .my-submit-btn {
   background: #ffb03b;
   color: #fff;
-  border-radius: 50px;
+  border-radius: 20px;
   padding: 10px 25px;
   font-size: 13px;
   font-weight: 500;

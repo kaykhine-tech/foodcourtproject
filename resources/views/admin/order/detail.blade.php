@@ -54,7 +54,7 @@
 										<thead>
 											<tr>
 												<th>Product</th>
-												<th>Serial #</th>
+												<th>Code No.</th>
 												<th>Unit Price</th>
 												<th>Qty</th>
 												<th>Subtotal</th>
@@ -149,15 +149,15 @@
         $(document).ready(function(){
 
             $('.confirm_btn').click(function(){
-                var id = $(this).data('id');
-                
+                var id = $(this).data('id');                
                 $('#confirmModalForm').attr('action',id);
                 $('#confirmModal').modal('show');
+                
+
             })
 
             $('.cancel_btn').click(function(){
-                var id = $(this).data('id');
-                
+                var id = $(this).data('id');                
                 $('#cancelModalForm').attr('action',id);
                 $('#cancelModal').modal('show');
             })

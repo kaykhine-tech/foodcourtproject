@@ -57,13 +57,13 @@
                         <div class="nav">
                             <a class="nav-link" href="{{route('dashboard.index')}}">
                                 <div class="sb-nav-link-icon">
-                                    <i class="fas fa-tachometer-alt"></i>
+                                    <i class="fa fa-tachometer-alt"></i>
                                 </div>
                                 Dashboard
                             </a>
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
                                 <div class="sb-nav-link-icon">
-                                    <i class="fas fa-columns"></i>
+                                    <i class="fa fa-database"></i>
                                 </div>
                                 Data Management
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
@@ -71,19 +71,24 @@
                             <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
                                     <a class="nav-link" href="{{route('categories.index')}}">
-                                        <i class="fas fa-tags"></i><span class="ms-2">Category</span></a>
-                                    <a class="nav-link" href="{{route('items.index')}}"><i class="fas fa-hamburger"></i><span class="ms-2">Item</span></a>
+                                        <i class="fa fa-tags"></i>
+                                        <span class="ms-2">Category</span>
+                                    </a>
+                                    <a class="nav-link" href="{{route('items.index')}}">
+                                        <i class="fa fa-hamburger"></i>
+                                        <span class="ms-2">Item</span>
+                                    </a>
                                 </nav>
                             </div>
                             <a class="nav-link" href="{{route('orders.index')}}">
                                 <div class="sb-nav-link-icon">
-                                    <i class="fa fa-shopping-basket" style="color:white"></i>
+                                    <i class="fa fa-truck"></i>
                                 </div>
                                 Order Management
                             </a>
                             <a class="nav-link" href="{{route('users.index')}}">
                                 <div class="sb-nav-link-icon">
-                                    <i class="fa fa-users" style="color:white"></i>
+                                    <i class="fa fa-users"></i>
                                 </div>
                                 User Management
                             </a>

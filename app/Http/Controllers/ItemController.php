@@ -31,7 +31,13 @@ class ItemController extends Controller
     public function create()
     {
         $categories = Category::all();
-        return view('admin.item.create',compact('categories'));
+        $latestItem = Item::orderBy('created_at','DESC')->first();
+        if($latestItem){
+            $code_no = 'C-'.str_pad($latestItem->id + 1, 8, "0", STR_PAD_LEFT);
+        }else{
+            $code_no = 'C-'.str_pad(1, 8, "0", STR_PAD_LEFT);
+        }        
+        return view('admin.item.create',compact('categories','code_no'));
     }
 
     /**
