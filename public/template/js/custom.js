@@ -59,6 +59,7 @@ $(document).ready(function(){
     var html="";
     var total = 0;
     var i=0;
+
     if (mycartjson) {
       mycartarray = JSON.parse(mycartjson);
 
@@ -113,7 +114,7 @@ $(document).ready(function(){
     }else{
       $('.checkout').addClass('disabled');
       html = `<tr>
-                <td colspan="5">Empty Cart!</td>
+                <td colspan="5">Order Success!!</b></td>
               </tr>`;
     }
     $('#tbody').html(html);
@@ -214,18 +215,34 @@ $(document).ready(function(){
 
   // checkout process
   $('.checkout').click(function(){
-    
+
     //alert('ok');
     $.ajaxSetup({
       headers: {
         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
       }
+
+      // $.ajax({
+      //   beforeSend:function(){
+      //   $('#checkout').text('Order Success!!...');
+      // },
+
+      // success: function (results) {
+
+      //               if (results.success === true) {
+      //                   swal("Done!", results.message, "success");
+      //               } else {
+      //                   swal("Error!", results.message, "error");
+      //               }
+      //           }
+      
     });
     var mycartjson = localStorage.getItem('mycart');
     var total = $(this).data('total');
     $.post("/orders",{data:mycartjson,total:total},function(res){
       //console.log(res);
       // remove ls
+
       localStorage.clear();
       getData();
       

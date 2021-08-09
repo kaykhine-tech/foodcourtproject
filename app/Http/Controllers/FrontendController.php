@@ -32,9 +32,12 @@ class FrontendController extends Controller
         
     }
 
+
     public function menu(){
         $items = Item::all();
-        return view('frontend.menu', compact('items'));
+        $menufilter = Item::where('category_id', '!=', 'null')->get();
+        //dd($menufilter);
+        return view('frontend.menu', compact('items','menufilter'));
         
     }
 

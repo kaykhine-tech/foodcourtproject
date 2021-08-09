@@ -1,6 +1,9 @@
 @extends('layouts.frontendtemplate')
+
 @section('title', 'Cart Page')
 @section('content')
+
+
 
 <!-- ======= Hero Section ======= -->
   <section id="hero">
@@ -55,7 +58,7 @@
     <!-- End All Title Box -->
 
     <!-- Start Cart Div -->
-    <div class="cart-box-main">
+    <div class="cart-box-main showcart">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -94,44 +97,12 @@
             </div>
         </div>
 
-        
-       {{-- Shoppingcart Div --}}
-		{{-- <div class="row shoppingcart_div justify-content-center">
-            <div class="col-10 shadow p-3 mb-5 bg-white rounded">
-                <div class="row">
-                    <div class="col-4">
-                        <img src="{{asset('frontendtemplate/images/success.png')}}" class="img-fluid">
-                    </div>
-                <div class="col-8 pt-5">
-                    <h1> Your order is complete</h1>
-                    <p> You order will be delivered in 5 days.</p>
-                </div>
-            </div>
-        </div>
+
+@if(session()->has('message'))
+    <div class="alert alert-success">
+        {{ session()->get('message') }}
     </div>
-</div> --}}
-
-        <!-- No Shopping Cart Div -->
-        {{-- <div class="row mt-5 noneshoppingcart_div text-center">
-            
-            <div class="col-12">
-                <h5 class="text-center"> There are no items in this cart </h5>
-            </div>
-
-            <div class="col-12 mt-5 ">
-                <a href="categories" class="btn btn-secondary mainfullbtncolor px-3" > 
-                    <i class="icofont-shopping-cart"></i>
-                    Continue Shopping 
-                </a>
-                <img src="{{asset('frontendtemplate/images/emptycart.gif')}}">
-            </div>
-
-        </div>
-
-    </div> --}}
-    
-                           
-    <!-- End Cart -->
+@endif
 
 @endsection
 @section('script')

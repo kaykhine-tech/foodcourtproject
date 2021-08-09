@@ -38,7 +38,7 @@
     </div>
   </section><!-- End Hero -->
 
-  {{-- 	  <!-- ======= Menu Section ======= -->
+  	  <!-- ======= Menu Section ======= -->
     <section id="menu" class="menu">
       <div class="container">
 
@@ -46,29 +46,36 @@
           <h2>Check our tasty <span>Menu</span></h2>
         </div>
 
-        <div class="row">
+        {{-- <div class="row">
           <div class="col-lg-12 d-flex justify-content-center">
-            <ul id="menu-flters">
-              <li data-filter="*" class="filter-active">Show All</li>
-              <li data-filter=".filter-starters">Rice</li>
-              <li data-filter=".filter-salads">Salads</li>
-              <li data-filter=".filter-specialty">Specialty</li>
-            </ul>
+            <ul id="menu-flters"> --}}
+             {{--  <li data-filter="*" class="filter-active">Show All</li> --}}
+             {{-- <li><a href="{{route('menufilter')}}">Show All</a></li> --}}
+              {{-- <li><a href="{{route('menufilter')}}">Rice</li>
+              <li><a href="{{route('menufilter')}}">Salads</li>
+              <li><a href="{{route('menufilter')}}">Specialty</li> --}}
+            {{-- </ul>
           </div>
-        </div>
+        </div> --}}
 
+        
         <div class="row menu-container">
-
-          <div class="col-lg-6 menu-item filter-starters">
+          @foreach($menufilter as $item)
+          <div class="col-lg-6 menu-item">
             <div class="menu-content">
-              <a href="#">Chicken Fried Rice</a><span>4000 Ks</span>
-            </div>
-            <div class="menu-ingredients">
-              Chicken, Rice & One Egg
+             <h5><span>{{$item->name}}</span></h5>
+             <h5><span>{{$item->price}}</span></h5>
+             <span><button class="btn btn-outline-secondary add-to-cart" data-id="{{$item->id}}" data-name="{{$item->name}}" data-price="{{$item->price}}" data-photo="{{$item->photo}}">Cart</button></span>
+             {{-- <i class="icofont-shopping-cart"></i> --}}
             </div>
           </div>
+          @endforeach
+        </div>
+      </div>
+    </section>
+      
 
-          <div class="col-lg-6 menu-item filter-specialty">
+          {{-- <div class="col-lg-6 menu-item filter-specialty">
             <div class="menu-content">
               <a href="#">Green Tea Ice-Cream</a><span>2500 Ks</span>
             </div>
@@ -152,7 +159,7 @@
         </div>
 
       </div>
-    </section><!-- End Menu Section --> --}}
+    </section> --}}<!-- End Menu Section -->
 
     <section id="why-us" class="why-us">
       <div class="container">

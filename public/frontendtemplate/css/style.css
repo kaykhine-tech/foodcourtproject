@@ -10,7 +10,7 @@
 --------------------------------------------------------------*/
 body {
   font-family: "Poppins", sans-serif;
-  color: #444444;
+  color: #fd7e14;
 }
 
 a {
@@ -884,7 +884,7 @@ section {
   right: 0;
   top: -4px;
   z-index: 1;
-  color: #dad8d4;
+  color: #ffc107;
   font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
 }
 

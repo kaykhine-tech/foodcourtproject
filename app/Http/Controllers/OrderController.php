@@ -11,6 +11,8 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Log;
 
+use Illuminate\Support\Facades\Session;
+
 class OrderController extends Controller
 {
 
@@ -69,7 +71,13 @@ class OrderController extends Controller
             }
         });
 
-        return 'success';
+        $notification = array(
+                'message' => 'Successfully Send Mail :)!',
+                'alert-type' => 'success'
+            );
+
+        //dd($notification);
+        return redirect()->route('frontend.home')->with($notification);
     }
 
     /**
