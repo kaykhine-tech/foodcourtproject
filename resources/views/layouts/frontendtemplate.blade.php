@@ -29,9 +29,15 @@
   <link href="{{asset('frontendtemplate/css/style.css')}}" rel="stylesheet">
   <link href="{{asset('frontendtemplate/css/custom.css')}}" rel="stylesheet" />
 
+  {{-- Favicon CSS File --}}
+  <!-- iconfont CSS -->
+    <link rel="stylesheet" type="text/css" href="{{asset('frontendtemplate/icon/icofont/icofont.min.css')}}">
+  <!-- Boxicon CSS -->
+    <link rel="stylesheet" type="text/css" href="{{asset('frontendtemplate/icon/boxicons-master/css/boxicons.min.css')}}">
 
 
-<link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet">
+
+{{-- <link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet"> --}}
 
   <!-- SweetAlert2 -->
     {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.2.0/sweetalert2.min.css">
@@ -51,7 +57,7 @@
   <section id="topbar" class="d-flex align-items-center fixed-top topbar-transparent">
     <div class="container-fluid container-xl d-flex align-items-center justify-content-center justify-content-lg-start">
       <i class="bi bi-phone d-flex align-items-center"><span>+95 9794588892</span></i>
-      <i class="bi bi-clock ms-4 d-none d-lg-flex align-items-center"><span>Mon-Sun: 9:00 AM - 7:00 PM</span></i>
+      <i class="bi bi-clock ms-4 d-none d-lg-flex align-items-center"><span>Mon-Sun: 9:00 AM - 5:00 PM</span></i>
     </div>
   </section>
 
@@ -141,8 +147,12 @@
 
   <!-- ALL JS FILES -->
     <script src="{{asset('frontendtemplate/js/jquery-3.2.1.min.js')}}"></script>
-    {{-- <script src="{{asset('frontendtemplate/js/popper.min.js')}}"></script>
-    <script src="{{asset('frontendtemplate/js/bootstrap.min.js')}}"></script> --}}
+
+    {{-- <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+ --}}
+    <link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet">
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+
 
   <!-- Vendor JS Files -->
   <script src="{{asset('frontendtemplate/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
