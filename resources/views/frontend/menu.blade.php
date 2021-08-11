@@ -67,21 +67,21 @@
           </div>
         </div> --}} 
 
-        {{-- <div class="row">
+        <div class="row">
           <div class="col-lg-12 d-flex justify-content-center">
             <ul id="menu-flters" class="category_id">
               <li data-filter="*" class="filter-active">Show All</li>
-             @foreach($categories as $category) --}}
+             @foreach($categories as $category)
             
               
-              {{-- <li data-filter=".filter-specialty_{{$category->id}}">{{$category->name}}</li> --}}
+              <li data-filter=".filter-specialty_{{$category->id}}">{{$category->name}}</li>
               {{-- <a href="#">{{$category->name}}</a> --}}
               
-            {{-- @endforeach
+            @endforeach
             </ul>
            
           </div>
-        </div> --}}
+        </div>
 
         
         <div class="row menu-container">
