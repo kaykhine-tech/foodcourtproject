@@ -80,6 +80,7 @@ class ItemController extends Controller
         $item->discount = $request->discount;
         $item->description = $request->description;
         $item->category_id = $request->category_id;
+        Log::info("Item $item");
         $item->save();
 
         // redirect

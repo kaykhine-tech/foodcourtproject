@@ -9,7 +9,7 @@
 					<h6 class="m-0 font-weight-bold d-inline-block">New Item</h6>
 				</div>
 				<div class="card-body">
-					<form method="post" action="{{route('items.store')}}" enctype="multipart/form-data">
+					<form method="post" action="{{route('items.store',$code_no)}}" enctype="multipart/form-data">
 						@csrf
 						<div class="row mb-3">
 							<label for="inputCodeno" class="col-sm-2 col-form-label">CodeNo</label>
