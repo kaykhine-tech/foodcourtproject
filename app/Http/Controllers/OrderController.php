@@ -71,14 +71,22 @@ class OrderController extends Controller
             }
         });
 
-        $notification = array(
-                'message' => 'Successfully Send Mail :)!',
-                'alert-type' => 'success'
-            );
+        // $notification = array(
+        //         'message' => 'Successfully Send Mail :)!',
+        //         'alert-type' => 'success'
+        //     );
 
-        //dd($notification);
-        return redirect()->route('frontend.home')->with($notification);
+        // //dd($notification);
+        // return redirect()->route('frontend.home')->with($notification);
     }
+
+    // public function success(){
+
+    //     return response()->json([
+    //         'success' => $success,
+    //         'message' => "Your Order successfully!!",
+    //     ]);
+    // }
 
     /**
      * Display the specified resource.
@@ -143,4 +151,6 @@ class OrderController extends Controller
         // redirect
         return redirect()->route('orders.index');
     }
+
+    
 }

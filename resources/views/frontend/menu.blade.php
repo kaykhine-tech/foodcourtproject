@@ -48,25 +48,54 @@
 
         {{-- <div class="row">
           <div class="col-lg-12 d-flex justify-content-center">
-            <ul id="menu-flters"> --}}
-             {{--  <li data-filter="*" class="filter-active">Show All</li> --}}
-             {{-- <li><a href="{{route('menufilter')}}">Show All</a></li> --}}
-              {{-- <li><a href="{{route('menufilter')}}">Rice</li>
-              <li><a href="{{route('menufilter')}}">Salads</li>
-              <li><a href="{{route('menufilter')}}">Specialty</li> --}}
-            {{-- </ul>
+
+            <ul id="menu-filters">
+              @php
+              $i = 1;
+              @endphp
+              
+             
+              {{ <a href="{{route('menufilter', $category->id)}}">Show All</a></li> --}} 
+             {{--  @foreach($menufilter as $item)
+             <li data-filter="*" class="filter-active"><a class="menu-filters @if($i==1){{'active'}} @endif" href="#{{$item->name}}"></a>Show All</li>
+              <li data-filter=".filter-starters"><a href="#">Rice</li>
+              <li data-filter=".filter-salads"><a href="#">Salads</li>
+              <li data-filter=".filter-specialty"><a href="#">Specialty</li>
+            </ul>
+            @php $i++; @endphp
+             @endforeach
+          </div>
+        </div> --}} 
+
+        {{-- <div class="row">
+          <div class="col-lg-12 d-flex justify-content-center">
+            <ul id="menu-flters" class="category_id">
+              <li data-filter="*" class="filter-active">Show All</li>
+             @foreach($categories as $category) --}}
+            
+              
+              {{-- <li data-filter=".filter-specialty_{{$category->id}}">{{$category->name}}</li> --}}
+              {{-- <a href="#">{{$category->name}}</a> --}}
+              
+            {{-- @endforeach
+            </ul>
+           
           </div>
         </div> --}}
 
         
         <div class="row menu-container">
+
           @foreach($menufilter as $item)
-          <div class="col-lg-6 menu-item">
+          <div class="col-lg-4 menu-item">
             <div class="menu-content">
              <h5><span>{{$item->name}}</span></h5>
              <h5><span>{{$item->price}}</span></h5>
-             <span><button class="btn btn-outline-secondary add-to-cart" data-id="{{$item->id}}" data-name="{{$item->name}}" data-price="{{$item->price}}" data-photo="{{$item->photo}}">Cart</button></span>
-             {{-- <i class="icofont-shopping-cart"></i> --}}
+             @if ($nows=="ShowAddtocart")
+             <span><button class="btn btn-outline-secondary add-to-cart" data-id="{{$item->id}}" data-name="{{$item->name}}" data-price="{{$item->price}}" data-photo="{{$item->photo}}"><i class="icofont-shopping-cart"></i></button></span>
+             @else
+            <button class="btn btn-primary btn-sm" title="Please 8:00AM to 5:00PM">Order Closed</button>
+            @endif
             </div>
           </div>
           @endforeach
@@ -74,17 +103,18 @@
       </div>
     </section>
       
-
-          {{-- <div class="col-lg-6 menu-item filter-specialty">
+           {{-- @foreach($categories as $category)
+          <div class="col-lg-6 menu-item filter-specialty_{{$category->id}}">
             <div class="menu-content">
+
               <a href="#">Green Tea Ice-Cream</a><span>2500 Ks</span>
             </div>
             <div class="menu-ingredients">
               Green Tea, Biscuit
             </div>
           </div>
-
-          <div class="col-lg-6 menu-item filter-specialty">
+          @endforeach --}}
+          {{-- <div class="col-lg-6 menu-item filter-specialty">
             <div class="menu-content">
               <a href="#">Strawberry Cake</a><span>3500 Ks</span>
             </div>
@@ -183,7 +213,12 @@
               <p><del>Price:{{$item->price}} Ks</del></p>
               <p>Discount:{{$item->discount}} Ks</p>
               @endif
+
+              @if ($nows=="ShowAddtocart")
               <button class="btn btn-outline-secondary add-to-cart" data-id="{{$item->id}}" data-name="{{$item->name}}" data-photo="{{$item->photo}}" data-price="{{$item->price}}" data-discount="{{$item->discount}}">Add To Cart</button>
+              @else
+              <button class="btn btn-primary btn-sm" title="Please 8:00AM to 5:00PM ">Order Closed</button>
+              @endif
             </div>
 
           </div>

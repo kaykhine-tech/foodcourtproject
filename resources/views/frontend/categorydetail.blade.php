@@ -54,7 +54,12 @@
               <p><del>Price:{{$item->price}} Ks</del></p>
               <p>Discount:{{$item->discount}} Ks</p>
               @endif
+
+              @if ($nows=="ShowAddtocart")
               <button class="btn btn-outline-secondary add-to-cart" data-id="{{$item->id}}" data-name="{{$item->name}}" data-photo="{{$item->photo}}" data-price="{{$item->price}}" data-discount="{{$item->discount}}">Add To Cart</button>
+              @else
+              <button class="btn btn-primary btn-sm" title="Please 8:00AM to 5:00PM ">Order Closed</button>
+              @endif
             </div>
 
           </div>

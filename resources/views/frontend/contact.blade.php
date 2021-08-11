@@ -81,6 +81,10 @@
         </div>
       </div>
 
+      <div class="map">
+        <iframe style="border:0; width: 100%; height: 350px;" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12097.433213460943!2d-74.0062269!3d40.7101282!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89d1fe6bc499443!2sDowntown+Conference+Center!5e0!3m2!1smk!2sbg!4v1539943755621" frameborder="0" allowfullscreen></iframe>
+      </div>
+
       <div class="container mt-5">
 
         <div class="info-wrap">
@@ -88,20 +92,20 @@
             <div class="col-lg-3 col-md-6 info">
               <i class="bi bi-geo-alt"></i>
               <h4>Location:</h4>
-              <p>Kwar Nyo Street<br>Taunggyi, PA 163</p>
+              <p>7 Pyi Yeik Mon Kamaryut Township<br>Yangon</p>
               {{-- <p>Street<br> Monywa</p> --}}
             </div>
 
             <div class="col-lg-3 col-md-6 info mt-4 mt-lg-0">
               <i class="bi bi-clock"></i>
               <h4>Open Hours:</h4>
-              <p>Monday-Sunday:<br>9:00 AM - 7:00 PM</p>
+              <p>Monday-Sunday:<br>9:00 AM - 5:00 PM</p>
             </div>
 
             <div class="col-lg-3 col-md-6 info mt-4 mt-lg-0">
               <i class="bi bi-envelope"></i>
               <h4>Email:</h4>
-              <p>kaykhine@gmail.com<br>monko@gmail.com</p>
+              <p>kaykhinekaykhine9@gmail.com<br>monko944@gmail.com</p>
             </div>
 
             <div class="col-lg-3 col-md-6 info mt-4 mt-lg-0">
@@ -111,8 +115,10 @@
             </div>
           </div>
         </div>
+      </div>
+    </section>
 
-        <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+        {{-- <form action="forms/contact.php" method="post" role="form" class="php-email-form">
           <div class="row">
             <div class="col-md-6 form-group">
               <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
@@ -136,6 +142,6 @@
         </form>
 
       </div>
-    </section><!-- End Contact Section -->
+    </section> --}}<!-- End Contact Section -->
 
 @endsection

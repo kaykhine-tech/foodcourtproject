@@ -79,11 +79,12 @@
                             <tfoot>
                               <tr>
                                 <td colspan="8"></td>
-                                <td class="checkcart">
+                                <td>
                                     @if(!Auth::user('login'))
                                     <button class="btn btn-outline-dark"><a href="{{ route('login')}}">{{ __('Login')}}</a></button>
-                                    @else
-                                    <button class="btn btn-outline-dark checkout">Checkout</button>
+                                    @elseif(Auth::user('login'))
+                                    <a href="{{route('frontend.cart')}}"></a>
+                                    <button class="btn btn-outline-dark checkout" onclick="successconfirm">Checkout</button>
                                     @endif
                                 </td>
                               </tr>
@@ -98,13 +99,51 @@
         </div>
 
 
-@if(session()->has('message'))
+{{-- @if(session()->has('message'))
     <div class="alert alert-success">
         {{ session()->get('message') }}
     </div>
-@endif
+@endif --}}
+{{-- <script type="text/javascript">
+    function successconfirm() {
+        swal({
+        
+            confirmButtonText: "Yes, Order Successfully!",
+            cancelButtonText: "No, cancel!",
+            reverseButtons: !0
+        }).then(function (e) {
 
+            if (e.value === true) {
+                var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
+
+                $.ajax({
+                    type: 'post',
+                    url: "{{url('/successconfirm')}}/",
+                    data: {_token: CSRF_TOKEN},
+                    dataType: 'JSON',
+                    success: function (res) {
+
+                        if (res.success === true) {
+                            swal("Done!", res.message, "success");
+                        } else {
+                            swal("Error!", res.message, "error");
+                        }
+                    }
+                    
+                });
+
+            } else {
+                e.dismiss;
+            }
+
+        }, function (dismiss) {
+            return false;
+        })
+    }
+</script> --}}
 @endsection
 @section('script')
 <script type="text/javascript" src="{{asset('template/js/custom.js')}}"></script>
+
+
 @endsection

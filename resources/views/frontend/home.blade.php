@@ -122,8 +122,15 @@
               <p><del>Price:{{$item->price}} Ks</del></p>
               <p>Discount:{{$item->discount}} Ks</p>
               @endif
-              {{-- <button class="btn btn-outline-secondary add-to-cart">Add To Cart</button> --}}
+
+              @if ($nows=="ShowAddtocart")
               <button class="btn btn-outline-secondary add-to-cart" data-id="{{$item->id}}" data-name="{{$item->name}}" data-photo="{{$item->photo}}" data-price="{{$item->price}}" data-discount="{{$item->discount}}">Add To Cart</button>
+              @else
+              <button class="btn btn-primary btn-sm" title="Please 8:00AM to 5:00PM ">Order Closed</button>
+              @endif
+
+              {{-- <button class="btn btn-outline-secondary add-to-cart">Add To Cart</button> --}}
+              {{-- <button class="btn btn-outline-secondary add-to-cart" data-id="{{$item->id}}" data-name="{{$item->name}}" data-photo="{{$item->photo}}" data-price="{{$item->price}}" data-discount="{{$item->discount}}">Add To Cart</button> --}}
             </div>
 
           </div>
@@ -137,7 +144,7 @@
 @endsection
 @section('script')
 <script type="text/javascript" src="{{asset('template/js/custom.js')}}"></script>
-<script type="text/javascript">
+{{-- <script type="text/javascript">
 @if(Session::has('message'))
     var type="{{Session::get('alert-type','info')}}"
 
@@ -160,5 +167,5 @@
         break;
     }
     @endif
-</script>
+</script> --}}
 @endsection

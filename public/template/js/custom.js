@@ -45,7 +45,6 @@ $(document).ready(function(){
     var cartData = JSON.stringify(mycartarray);
     localStorage.setItem('mycart', cartData);
 
-    
     cartNoti();
     getData();
 
@@ -240,8 +239,18 @@ $(document).ready(function(){
     var mycartjson = localStorage.getItem('mycart');
     var total = $(this).data('total');
     $.post("/orders",{data:mycartjson,total:total},function(res){
-      //console.log(res);
+      console.log(res);
+
+      toastr.success('Order Successful!', {timeOut: 5000});
+
+
       // remove ls
+
+      // if(res=="success"){
+      //   swal("Good Job!", "Your Order Successfully!!", "success");
+        
+      // }
+
 
       localStorage.clear();
       getData();

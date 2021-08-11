@@ -27,7 +27,7 @@
                                 <td>{{$i++}}</td>
                                 <td>{{$order->user->name}}</td>
                                 <td>
-                                    {{Carbon\Carbon::parse($order->orderdate)->format('d-m-Y')}}
+                                    {{Carbon\Carbon::parse($order->order_date)->format('d-m-Y')}}
                                 </td>
                                 <td>{{$order->voucher_no}}</td>
                                 <td>
