@@ -77,7 +77,7 @@
 
         <div class="section-title">
           <h2><span>Contact</span> Us</h2>
-          <p>Welcome From Our K&H Food Court ! If you have any questions or help, please fill out the form below. Thank You!</p>
+          <p>Welcome From Our K&H Food Court ! If you have any questions or help, please contact us with our email address or phone calling. Thank You!</p>
         </div>
       </div>
 
@@ -105,7 +105,7 @@
             <div class="col-lg-3 col-md-6 info mt-4 mt-lg-0">
               <i class="bi bi-envelope"></i>
               <h4>Email:</h4>
-              <p>kaykhinekaykhine9@gmail.com<br>monko944@gmail.com</p>
+              <p>kaykhine113@gmail.com<br>monko944@gmail.com</p>
             </div>
 
             <div class="col-lg-3 col-md-6 info mt-4 mt-lg-0">

@@ -126,7 +126,7 @@
               @if ($nows=="ShowAddtocart")
               <button class="btn btn-outline-secondary add-to-cart" data-id="{{$item->id}}" data-name="{{$item->name}}" data-photo="{{$item->photo}}" data-price="{{$item->price}}" data-discount="{{$item->discount}}">Add To Cart</button>
               @else
-              <button class="btn btn-primary btn-sm" title="Please 8:00AM to 5:00PM ">Order Closed</button>
+              <button class="btn btn-primary btn-sm" title="Please 9:00AM to 18:00PM ">Order Closed</button>
               @endif
 
               {{-- <button class="btn btn-outline-secondary add-to-cart">Add To Cart</button> --}}
