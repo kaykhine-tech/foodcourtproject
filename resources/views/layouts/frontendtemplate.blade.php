@@ -122,14 +122,16 @@
   <footer id="footer">
     <div class="container">
       <h3>K&H Food Court</h3>
-      <p>CONTACT US</p>
-      <div class="social-links">
+      <div>CONTACT US</div><br>
+      <div>Phone: +95 9794588892 | +95 9976648235</div>
+      <div>Email: kaykhinekaykhine9@gmail.com | monko944@gmail.com</div><br>
+      {{-- <div class="social-links">
         <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
         <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
         <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
         <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
         <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
-      </div>
+      </div> --}}
       <div class="copyright">
         &copy; Copyright <strong><span>K&H Food Court</span></strong>. All Rights Reserved
       </div>

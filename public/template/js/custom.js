@@ -107,13 +107,13 @@ $(document).ready(function(){
 
       html += `<tr>
                 <td colspan="6">Total: </td>
-                <td>${total}</td>
+                <td colspan="8">${total}</td>
               </tr>`;
       $('.checkout').attr('data-total',total);
     }else{
       $('.checkout').addClass('disabled');
       html = `<tr>
-                <td colspan="5">Order Success!!</b></td>
+                <td colspan="15">There is no items in cart!!</b></td>
               </tr>`;
     }
     $('#tbody').html(html);

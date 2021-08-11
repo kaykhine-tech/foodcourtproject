@@ -34,3 +34,4 @@ class MyMail extends Mailable
                     ->markdown('emails.myMail');
     }
 }
+
