@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Auth;
 
 use App\Order;
-use App\Mail\MyeMail;
+use App\Mail\MyMail;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
