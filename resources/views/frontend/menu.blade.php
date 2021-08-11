@@ -248,7 +248,7 @@
       <div class="container">
 
         <div class="section-title">
-          <h2>Food <span>Food Menu</span></h2>
+          <h2>Food<span> Menu</span></h2>
           <p>You can browse our food menu and make order.</p>
         </div>
 
