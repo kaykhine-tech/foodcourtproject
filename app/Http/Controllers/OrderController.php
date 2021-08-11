@@ -150,8 +150,10 @@ class OrderController extends Controller
                 'total' => $order->total,
                 'items' => $order->items
                 ];
+        //dd($details);
         $receiver_email = $order->user->email;
         \Mail::to($receiver_email)->send(new \App\Mail\MyMail($details));
+
 
         // redirect
         return redirect()->route('orders.index');
