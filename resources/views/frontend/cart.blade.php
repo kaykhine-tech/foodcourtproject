@@ -58,7 +58,7 @@
     <!-- End All Title Box -->
 
     <!-- Start Cart Div -->
-    <div class="cart-box-main showcart">
+    <div class="cart-box-main">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -70,7 +70,7 @@
                                     <th>Product Name</th>
                                     <th>Price</th>
                                     <th colspan="3">Quantity</th>
-                                    <th colspan="6">Total</th>
+                                    <th colspan="8">Total</th>
                                 </tr>
                             </thead>
                             <tbody id="tbody">
@@ -84,7 +84,7 @@
                                     <button class="btn btn-outline-dark"><a href="{{ route('login')}}">{{ __('Login')}}</a></button>
                                     @elseif(Auth::user('login'))
                                     <a href="{{route('frontend.cart')}}"></a>
-                                    <button class="btn btn-outline-dark checkout" onclick="successconfirm">Checkout</button>
+                                    <button class="btn btn-outline-dark checkout">Checkout</button>
                                     @endif
                                 </td>
                               </tr>

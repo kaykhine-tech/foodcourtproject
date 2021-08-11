@@ -67,14 +67,16 @@
           </div>
         </div> --}} 
 
+        
         {{-- <div class="row">
           <div class="col-lg-12 d-flex justify-content-center">
             <ul id="menu-flters" class="category_id">
               <li data-filter="*" class="filter-active">Show All</li>
-             @foreach($categories as $category) --}}
+
+             @foreach($categories as $category)
             
               
-              {{-- <li data-filter=".filter-specialty_{{$category->id}}">{{$category->name}}</li> --}}
+              <a href="{{route('frontend.menu', $category->id)}}"><li data-filter=".filter-specialty">{{$category->name}}</li></a> --}}
               {{-- <a href="#">{{$category->name}}</a> --}}
               
             {{-- @endforeach
@@ -83,7 +85,7 @@
           </div>
         </div> --}}
 
-        
+      
         <div class="row menu-container">
 
           @foreach($menufilter as $item)
@@ -102,18 +104,69 @@
         </div>
       </div>
     </section>
-      
-           {{-- @foreach($categories as $category)
-          <div class="col-lg-6 menu-item filter-specialty_{{$category->id}}">
-            <div class="menu-content">
+    
 
-              <a href="#">Green Tea Ice-Cream</a><span>2500 Ks</span>
-            </div>
-            <div class="menu-ingredients">
-              Green Tea, Biscuit
+   {{--  <div class="row menu-container">
+
+          @foreach($menulist as $item)
+          <div class="col-lg-4 menu-item filter-specialty">
+            <div class="menu-content">
+             <h5><span>{{$item->name}}</span></h5>
+             <h5><span>{{$item->price}}</span></h5>
+             @if ($nows=="ShowAddtocart")
+             <span><button class="btn btn-outline-secondary add-to-cart" data-id="{{$item->id}}" data-name="{{$item->name}}" data-price="{{$item->price}}" data-photo="{{$item->photo}}"><i class="icofont-shopping-cart"></i></button></span>
+             @else
+            <button class="btn btn-primary btn-sm" title="Please 8:00AM to 5:00PM">Order Closed</button>
+            @endif
             </div>
           </div>
-          @endforeach --}}
+          @endforeach
+        </div>
+      </div> --}}
+
+
+  {{-- <div class="row menu-container">
+
+          @foreach($menulist1 as $item)
+          <div class="col-lg-4 menu-item filter-specialty">
+            <div class="menu-content">
+             <h5><span>{{$item->name}}</span></h5>
+             <h5><span>{{$item->price}}</span></h5>
+             @if ($nows=="ShowAddtocart")
+             <span><button class="btn btn-outline-secondary add-to-cart" data-id="{{$item->id}}" data-name="{{$item->name}}" data-price="{{$item->price}}" data-photo="{{$item->photo}}"><i class="icofont-shopping-cart"></i></button></span>
+             @else
+            <button class="btn btn-primary btn-sm" title="Please 8:00AM to 5:00PM">Order Closed</button>
+            @endif
+            </div>
+          </div>
+          @endforeach
+        </div>
+      </div>
+      
+      </section> --}}
+
+
+          {{-- <div class="row menu-container">
+          <div class="col-lg-6 menu-item filter-specialty"> --}}
+            {{-- <div class="menu-content"> --}}
+              {{-- @foreach($menulist as $item)
+             <div class="col-lg-4 menu-item">
+            <div class="menu-content">
+             <h5><span>{{$item->name}}</span></h5>
+             <h5><span>{{$item->price}}</span></h5>
+             @if ($nows=="ShowAddtocart")
+             <span><button class="btn btn-outline-secondary add-to-cart" data-id="{{$item->id}}" data-name="{{$item->name}}" data-price="{{$item->price}}" data-photo="{{$item->photo}}"><i class="icofont-shopping-cart"></i></button></span>
+             @else
+            <button class="btn btn-primary btn-sm" title="Please 8:00AM to 5:00PM">Order Closed</button>
+            @endif
+            </div>
+          </div>
+              @endforeach
+            
+          </div>
+        </div> --}}
+          
+
           {{-- <div class="col-lg-6 menu-item filter-specialty">
             <div class="menu-content">
               <a href="#">Strawberry Cake</a><span>3500 Ks</span>
