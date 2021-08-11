@@ -138,8 +138,8 @@ class OrderController extends Controller
     }
     public function order_confirm(Request $request, Order $order)
     {
-        // $order->status = 1;
-        // $order->save();
+        $order->status = 1;
+        $order->save();
 
         $details = [
                 'title' => 'Order Confirmed',
@@ -158,8 +158,8 @@ class OrderController extends Controller
     }
     public function order_cancel(Request $request, Order $order)
     {
-        // $order->status = 2;
-        // $order->save();
+        $order->status = 2;
+        $order->save();
 
         $details = [
                 'title' => 'Order Cancelled',
