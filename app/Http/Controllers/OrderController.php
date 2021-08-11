@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Auth;
 
 use App\Order;
+use App\Mail\MyeMail;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -129,16 +130,35 @@ class OrderController extends Controller
     }
     public function order_confirm(Request $request, Order $order)
     {
-        $order->status = 1;
-        $order->save();
+        // $order->status = 1;
+        // $order->save();
+
+        $details = [
+                'title' => 'Order Confirmed',
+                'customer_name' => $order->user->name,
+                'customer_address' => $order->user->address,
+                'voucher_no' => $order->voucher_no,
+                'order_date' => $order->order_date,
+                'total' => $order->total,
+                'items' => $order->items
+                ];
+        $receiver_email = $order->user->email;
+        \Mail::to($receiver_email)->send(new \App\Mail\MyMail($details));
 
         // redirect
         return redirect()->route('orders.index');
     }
     public function order_cancel(Request $request, Order $order)
     {
-        $order->status = 2;
-        $order->save();
+        // $order->status = 2;
+        // $order->save();
+
+        $details = [
+                'title' => 'Order Cancelled',
+                'customer_name' => $order->user->name
+                ];
+        $receiver_email = $order->user->email;
+        \Mail::to($receiver_email)->send(new \App\Mail\MyMail($details));
 
         // redirect
         return redirect()->route('orders.index');
