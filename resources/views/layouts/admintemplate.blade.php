@@ -143,9 +143,9 @@
             <script type="text/javascript">
                 $(document).ready(function(){
                     $(function() {
-                        var path = "http://localhost:8000" + location.pathname;
-                        $("a[href='" + path + "']").addClass('active');
-                        console.log(path);
+                    var path = "http://localhost:8000" + location.pathname;
+                    $("a[href='" + path + "']").addClass('active');
+                    console.log(path);
                     })
                 })
             </script>
