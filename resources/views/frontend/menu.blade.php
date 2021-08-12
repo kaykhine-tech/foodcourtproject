@@ -67,8 +67,8 @@
           </div>
         </div> --}} 
 
-<<<<<<< HEAD
-        <div class="row">
+
+        {{-- <div class="row">
           <div class="col-lg-12 d-flex justify-content-center">
             <ul id="menu-flters" class="category_id">
               <li data-filter="*" class="filter-active">Show All</li>
@@ -76,7 +76,7 @@
             
               
               <li data-filter=".filter-specialty_{{$category->id}}">{{$category->name}}</li>
-=======
+ --}}
         
         {{-- <div class="row">
           <div class="col-lg-12 d-flex justify-content-center">
@@ -87,14 +87,14 @@
             
               
               <a href="{{route('frontend.menu', $category->id)}}"><li data-filter=".filter-specialty">{{$category->name}}</li></a> --}}
->>>>>>> 426577097e175da1ddeffea81f3310d978fb852f
+
               {{-- <a href="#">{{$category->name}}</a> --}}
               
-            @endforeach
+            {{-- @endforeach
             </ul>
            
           </div>
-        </div>
+        </div> --}}
 
       
         <div class="row menu-container">
