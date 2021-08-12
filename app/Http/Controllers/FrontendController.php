@@ -14,13 +14,8 @@ class FrontendController extends Controller
         $items = Item::all();
         $dis_items = Item::where('discount','!=','null')->get();
         // dd($dis_items);
-<<<<<<< HEAD
-        $start = '9:00:00';
-        $end   = '18:00:00';
-=======
         $start = '09:00:00';
         $end   = '23:00:00';
->>>>>>> 426577097e175da1ddeffea81f3310d978fb852f
         $now   = Carbon::now('Asia/Yangon');
         
         $time  = $now->format('H:i:s');
@@ -61,13 +56,8 @@ class FrontendController extends Controller
         // $menulist1 = Item::where('category_id',2)->get();
         $menufilter = Item::where('category_id', '!=', 'null')->get();
         //dd($menufilter);
-<<<<<<< HEAD
-        $start = '9:00:00';
-        $end   = '18:00:00';
-=======
         $start = '09:00:00';
         $end   = '23:00:00';
->>>>>>> 426577097e175da1ddeffea81f3310d978fb852f
         $now   = Carbon::now('Asia/Yangon');
         
         $time  = $now->format('H:i:s');
@@ -88,13 +78,8 @@ class FrontendController extends Controller
         //dd ($id);
         $categoryfilter = Item::where('category_id',$id)->get();
         //dd($categoryfilter);
-<<<<<<< HEAD
-        $start = '9:00:00';
-        $end   = '18:00:00';
-=======
         $start = '09:00:00';
         $end   = '23:00:00';
->>>>>>> 426577097e175da1ddeffea81f3310d978fb852f
         $now   = Carbon::now('Asia/Yangon');
         
         $time  = $now->format('H:i:s');
