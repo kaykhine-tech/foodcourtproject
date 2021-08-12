@@ -181,6 +181,7 @@ class DashboardController extends Controller
         }
 
         $monthly_sale = array($jan_sum,$feb_sum,$mar_sum,$apr_sum,$may_sum,$jul_sum,$jul_sum,$aug_sum,$sep_sum,$oct_sum,$nov_sum,$dec_sum);
+        // dd($monthly_sale);
 
         // Log::info($monthly_sale);
 

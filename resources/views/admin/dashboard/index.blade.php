@@ -85,6 +85,6 @@
 	var bar_data = {!! json_encode($monthly_sale) !!};
 	var graph_data = @json($monthly_sale);
 
-	//pass 'mydata' variable to /public/backend_assets/demo/chart-bar-demo.js
-	//pass 'mydata' variable to /public/backend_assets/demo/chart-area-demo.js
+	//pass 'bar_data' variable to /public/backend_assets/demo/chart-bar-demo.js
+	//pass 'graph_data' variable to /public/backend_assets/demo/chart-area-demo.js
 </script>

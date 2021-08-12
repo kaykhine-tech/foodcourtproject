@@ -75,8 +75,12 @@
              @foreach($categories as $category)
             
               
+
               <li data-filter=".filter-specialty_{{$category->id}}">{{$category->name}}</li>
  --}}
+
+              {{-- <li data-filter=".filter-specialty_{{$category->id}}">{{$category->name}}</li> --}} 
+
         
         {{-- <div class="row">
           <div class="col-lg-12 d-flex justify-content-center">
@@ -88,9 +92,15 @@
               
               <a href="{{route('frontend.menu', $category->id)}}"><li data-filter=".filter-specialty">{{$category->name}}</li></a> --}}
 
+
               {{-- <a href="#">{{$category->name}}</a> --}}
               
             {{-- @endforeach
+
+              {{ <a href="#">{{$category->name}}</a> --}}
+              
+        {{--     @endforeach
+
             </ul>
            
           </div>
