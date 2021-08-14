@@ -83,13 +83,22 @@
 
 @section('script')
     <script type="text/javascript">
+
+        //callback the following deletefun() function inside datatables-simple-demo.js
+
         $(document).ready(function(){
+            deletefun();
+        })
+
+        function deletefun(){
             $('.deletebtn').click(function(){
                 var id = $(this).data('id');
                 // console.log(id);
                 $('#deleteModalForm').attr('action',id);
                 $('#deleteModal').modal('show');
             })
-        })
+        }
+
+
     </script>
 @endsection

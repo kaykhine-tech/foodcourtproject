@@ -77,13 +77,26 @@
 
 @section('script')
 <script type="text/javascript">
+    // $(document).ready(function(){
+    //     $('.deletebtn').click(function(){
+    //         var id = $(this).data('id');
+    //         // console.log(id);
+    //         $('#deleteModalForm').attr('action',id);
+    //         $('#deleteModal').modal('show');
+    //     })
+    // })
+
     $(document).ready(function(){
+            deletefun();
+    })
+
+    function deletefun(){
         $('.deletebtn').click(function(){
             var id = $(this).data('id');
             // console.log(id);
             $('#deleteModalForm').attr('action',id);
             $('#deleteModal').modal('show');
         })
-    })
+    }
 </script>
 @endsection

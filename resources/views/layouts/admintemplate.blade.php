@@ -14,10 +14,6 @@
         <link href="{{asset('backend_assets/css/custom.css')}}" rel="stylesheet" />
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        {{-- <link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet"> --}}
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        {{-- <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet"> --}}
     </head>
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
@@ -130,11 +126,9 @@
             <script src="{{asset('backend_assets/js/scripts.js')}}"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
             <script src="{{asset('backend_assets/assets/demo/chart-area-demo.js')}}"></script>
-            <script src="{{asset('backend_assets/assets/demo/chart-bar-demo.js')}}"></script>
-            <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
+            {{-- <script src="{{asset('backend_assets/assets/demo/chart-bar-demo.js')}}"></script> --}}
             <script src="{{asset('backend_assets/js/datatables-simple-demo.js')}}"></script>
             <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
-            <script src="{{asset('backend_assets/js/datatables-simple-demo.js')}}"></script>
             <script src="{{asset('backend_assets/jquery/jquery.min.js')}}"></script>
 
             {{-- Custom JS --}}
