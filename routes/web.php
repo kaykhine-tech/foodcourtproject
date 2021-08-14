@@ -44,4 +44,4 @@ Route::get('categoryfilter/{id}', 'FrontendController@category')->name('category
 // Authentication
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+//Route::get('/home', 'HomeController@index')->name('home');

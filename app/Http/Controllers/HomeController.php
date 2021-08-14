@@ -25,13 +25,13 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $roles = Auth::user()->getRoleNames();
-        if($roles[0] == 'admin'){
-            return redirect()->route('dashboard.index');
-        }else{
-            return redirect()->route('frontend.home');
-        }        
-    }
+    //     $roles = Auth::user()->getRoleNames();
+    //     if($roles[0] == 'admin'){
+    //         return redirect()->route('dashboard.index');
+    //     }else{
+    //         return redirect()->route('frontend.home');
+    //     }        
+    // }
 
     public function logout(){
 
