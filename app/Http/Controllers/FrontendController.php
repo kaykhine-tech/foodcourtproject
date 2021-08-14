@@ -108,7 +108,7 @@ class FrontendController extends Controller
 
 
         $start = '09:00:00';
-        $end   = '23:00:00';
+        $end   = '18:00:00';
 
         $now   = Carbon::now('Asia/Yangon');
         
